@@ -1,9 +1,7 @@
 # ICar
 <div align="center">
-  <img src="https://github.com/david-jc-br/ICar/assets/73839667/c018d56e-b474-4452-8331-50901b2ac521" alt="Logo ICar">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/c210e1f2-4c19-4b5b-bf4f-b287f14fec80" alt="Logo ICar">
 </div>
-
-
 
 # Projeto Final de Engenharia de Software 
 
