@@ -9,7 +9,7 @@
 
 ### Descrição:
 
-Projeto Final da Discipina de Engenharia de Softaware do Curso de Ciência da Computação na [UFLA](https://ufla.br/)(Universidade Federal de Lavras)  e têm como objetivo atender o gerenciamento comercial locação de veículos da empresa iCar.
+Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Computação na [UFLA](https://ufla.br/)(Universidade Federal de Lavras)  e têm como objetivo atender o gerenciamento comercial locação de veículos da empresa iCar.
 
 ### TECNOLOGIAS UTILIZADAS:
 
@@ -18,6 +18,8 @@ Projeto Final da Discipina de Engenharia de Softaware do Curso de Ciência da Co
 * **Linguagem:** [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) - Versão: **10.2.154.23-node.22**
 
 * **Banco de Dados:** [MySQL](https://www.mysql.com/) - Versão: **8.0.32**
+
+* **Front End:** [HTML5](https://developer.mozilla.org/pt-BR/docs/Learn/Getting_started_with_the_web/HTML_basics) e [CSS3](https://www.w3schools.com/Css/)
 
 ### HOSPEDAGEM: 
 * **Github Pages:** []() - Versão: **0.0**
