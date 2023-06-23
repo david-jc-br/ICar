@@ -19,6 +19,8 @@ Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Com
 
 * **Banco de Dados:** [MySQL](https://www.mysql.com/) - Versão: **8.0.32**
 
+* **Servidor:** [Express](https://expressjs.com/) - Versão: **4.18.1**
+
 * **Front End:** [HTML5](https://developer.mozilla.org/pt-BR/docs/Learn/Getting_started_with_the_web/HTML_basics) e [CSS3](https://www.w3schools.com/Css/)
 
 ### HOSPEDAGEM: 
