@@ -1,5 +1,5 @@
 # REQUISITOS FUNCIONAIS
-#### REQUISITOS FUNCIONÁRIOS
+#### REQUISITOS DE FUNCIONÁRIO
       RF-C-TF-TL Cadastrar-se
       RF-R-TF Consultar dados pessoais
       RF-U-TF Alterar dados pessoais
@@ -11,7 +11,7 @@
       RF-R-TA Consultar aluguéis
       RF-R-TL Logar no sistema
      
- #### REQUISITOS CLIENTE
+ #### REQUISITOS DE CLIENTE
 
       RF-C-TC-TL Cadastrar-se
       RF-R-TC Consultar dados pessoais
