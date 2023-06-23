@@ -45,37 +45,38 @@ Fundamental para manter a legibilidade e entendimento dos requisitos.
      TA (Tabela Aluguel);
      TF (Tabela Funcionário);
      TL (Tabela Login);
+     TP (Tabela Pessoa)
      
     Exemplo para compreender as nomenclaturas dos requisitos funcionais:
      RF-R1U Consulta de Usuários.
      
     CADASTRAR (CREATE):
-     RF-C-TC Cliente
+     RF-C-TC-TP Cliente
      RF-C-TV Veículo
      RF-C-TA Aluguel
-     RF-C-TF Funcionário
+     RF-C-TF-TP Funcionário
      RF-C-TL Login
 
     CONSULTAR (READ):
-     RF-R-TC Cliente
+     RF-R-TC-TP Cliente
      RF-R-TV Veículo
      RF-R-TA Aluguel
-     RF-R-TF Funcionário 
+     RF-R-TF-TP Funcionário 
      RF-R-TL Login
   
     ATUALIZAR (UPDATE):
-     RF-U-TC Cliente
+     RF-U-TC-TP Cliente
      RF-U-TV Veículo
      RF-U-TA Aluguel
-     RF-U-TF Funcionário 
+     RF-U-TF-TP Funcionário 
      RF-U-TL Login
  
     EXCLUIR (DELETE):
-     RF-D-TC Cliente
+     RF-D-TC-TP Cliente
      RF-D-TV Veículo
      RF-D-TA Aluguel
-     RF-D-TF Funcionário 
-     RF-D-TL Login
+     RF-D-TF-TP Funcionário 
+     RF-D-TL-TP Login
      
 ##### REQUISITOS NÃO FUNCIONAIS
     
