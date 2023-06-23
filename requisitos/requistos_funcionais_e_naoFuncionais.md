@@ -1,27 +1,26 @@
 # REQUISITOS FUNCIONAIS
 #### REQUISITOS DE FUNCIONÁRIO
-      RF-C-TF-TP-TL - Cadastrar-se
-      RF-R-TF-TP - Consultar dados pessoais
-      RF-U-TF-TP - Alterar dados pessoais
-      RF-D-TF-TP - Deletar cadastro (contanto que não existam alugueis)
-      RF-C-TV - Cadastrar veículo
-      RF-R-TV - Consultar veículo
-      RF-U-TV - Alterar dados dos veículos
-      RF-D-TV - Deletar cadastro de veículos (contanto que não existam aluguel)
-      RF-R-TA - Consultar aluguéis
-      RF-R-TL - Logar no sistema
+      RF-C-FU01 - Cadastrar-se
+      RF-R-FU01 - Consultar dados pessoais
+      RF-U-FU01 - Alterar dados pessoais
+      RF-D-FU01 - Deletar cadastro (contanto que não existam alugueis)
+      RF-C-FU02 - Cadastrar veículo
+      RF-R-FU02 - Consultar veículo
+      RF-U-FU02 - Alterar dados dos veículos
+      RF-D-FU02 - Deletar cadastro de veículos (contanto que não existam aluguel)
+      RF-R-FU03 - Consultar aluguéis
+      RF-R-FU04 - Logar no sistema
      
  #### REQUISITOS DE CLIENTE
-
-      RF-C-TC-TP-TL - Cadastrar-se
-      RF-R-TC-TP - Consultar dados pessoais
-      RF-U-TC-TP - Alterar dados pessoais
-      RF-D-TC-TP - Deletar cadastro (contanto que não existam aluguéis)
-      RF-R-TL - Logar no sistema
-      RF-R-TV - Visualizar Catálogo de Veículos (somente os veículos disponíveis)
-      RF-C-TA1 - Alugar veículo
-      RF-R-TA - Consultar seus aluguéis (somente aluguéis com o próprio cliente)
-      RF-C-TA2 - Renovar aluguel (cria um novo aluguel com início a partir do fim da locação anterior)
+      RF-C-CL01- Cadastrar-se
+      RF-R-CL01 - Consultar dados pessoais
+      RF-U-CL01 - Alterar dados pessoais
+      RF-D-CL01 - Deletar cadastro (contanto que não existam aluguéis)
+      RF-R-CL02 - Logar no sistema
+      RF-R-CL03 - Visualizar Catálogo de Veículos (somente os veículos disponíveis)
+      RF-C-CL02 - Alugar veículo
+      RF-R-CL04 - Consultar seus aluguéis (somente aluguéis com o próprio cliente)
+      RF-C-CL03 - Renovar aluguel (cria um novo aluguel com início a partir do fim da locação anterior)
 
 # REQUISITOS NÃO FUNCIONAIS
 
