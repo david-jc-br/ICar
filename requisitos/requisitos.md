@@ -27,7 +27,6 @@
 # REQUISITOS NÃO FUNCIONAIS
 
 #### Usabilidade
-      RNF-U00 Hospedagem cloud
       RNF-U01 Conexão ssh para desenvolvedores
       RNF-U02 Design responsivo para desktop e mobile
       
