@@ -6,11 +6,12 @@
       RF-D-FU01 - Deletar cadastro (contanto que não existam alugueis)
       RF-C-FU02 - Cadastrar veículo
       RF-R-FU02 - Consultar veículo
-      RF-U-FU02 - Alterar dados dos veículos
-      RF-D-FU02 - Deletar cadastro de veículos (contanto que não existam aluguel)
+      RF-U-FU02 - Atualizar veículo
+      RF-D-FU02 - Excluir veículo (contanto que não existam aluguel)
       RF-R-FU03 - Visualizar aluguéis
-      RF-R-FU04 - Logar no sistema
-     
+      RF-R-FU04 - Visualizar informações do veículo
+      RF-R-FU05 - Logar no sistema
+      
  #### REQUISITOS DE CLIENTE
       RF-C-CL01 - Cadastrar-se
       RF-R-CL01 - Visualizar informações pessoais
