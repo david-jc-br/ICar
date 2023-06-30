@@ -30,14 +30,6 @@ Projeto Icar
 - [Regras de verificação e ánalise de requisitos](https://github.com/david-jc-br/ICar/blob/main/padroes_adotados/Regras%20de%20Verifica%C3%A7%C3%A3o%20e%20An%C3%A1lise%20de%20Requisito.md)
 #### APP: Essa contém as pastas com o back-end e com o front-end. 
 
-## Projeto
-- [Requisitos](./requisitos)
-- - [Requisitos](./requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
-- [Padrões Adotados](./padrões_adotados)
-- [App](./App)
-    - [Back-end](./App/Back-end)
-    - [Front-end](./App/Front-end)
-
 ### TECNOLOGIAS UTILIZADAS:
 
 * **Biblioteca:** [NodeJs](https://nodejs.org/en) - Versão: **19.8.1**
