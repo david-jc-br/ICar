@@ -13,10 +13,10 @@ Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Com
 
 ### Estrutura das pastas:
 #### Requisitos: Essa pasta contém a documentação referente aos requisitos, incluindo os diagramas.
-[Diagrama de casos de uso.](https://github.com/david-jc-br/ICar/blob/main/requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
-[Documento de requisitos.](https://github.com/david-jc-br/ICar/blob/main/requisitos/Documento%20de%20Requisitos%20ICar.pdf)
-[Prototipos de interface.](https://github.com/david-jc-br/ICar/blob/main/requisitos/prototiposDeInterface.pdf)
-[Requisitos.](https://github.com/david-jc-br/ICar/blob/main/requisitos/requisitos.md)
+-[Diagrama de casos de uso.](https://github.com/david-jc-br/ICar/blob/main/requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
+-[Documento de requisitos.](https://github.com/david-jc-br/ICar/blob/main/requisitos/Documento%20de%20Requisitos%20ICar.pdf)
+-[Prototipos de interface.](https://github.com/david-jc-br/ICar/blob/main/requisitos/prototiposDeInterface.pdf)
+-[Requisitos.](https://github.com/david-jc-br/ICar/blob/main/requisitos/requisitos.md)
 #### Padrões adotados: Essa pasta contém Regras de Verificação e Análise de Requisitos.
 
 #### APP: Essa contém as pastas com o back-end e com o front-end. 
@@ -29,6 +29,7 @@ Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Com
   └─ Front-end
 ## Projeto
 - [Requisitos](./requisitos)
+- - [Requisitos](./requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
 - [Padrões Adotados](./padrões_adotados)
 - [App](./App)
     - [Back-end](./App/Back-end)
