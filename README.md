@@ -11,6 +11,15 @@
 
 Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Computação na [UFLA](https://ufla.br/)(Universidade Federal de Lavras)  e têm como objetivo atender o gerenciamento comercial locação de veículos da empresa iCar.
 
+### Estrutura das pastas:
+#### Requisitos: Essa pasta contém a documentação referente aos requisitos, incluindo os diagramas.
+Diagrama de casos de uso.
+#### Padrões adotados: Essa pasta contém Regras de Verificação e Análise de Requisitos. 
+#### APP: Essa contém as pastas com o back-end e com o front-end. 
+
+
+
+
 ### TECNOLOGIAS UTILIZADAS:
 
 * **Biblioteca:** [NodeJs](https://nodejs.org/en) - Versão: **19.8.1**
