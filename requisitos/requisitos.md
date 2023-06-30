@@ -34,7 +34,7 @@
       RNF-C00 Manutenção
 
 #### Desempenho
-      RNF-D00 Consulta Ágil (0.5 segundos)
+      RNF-D00 Consulta Ágil (0.5 segundos, no servidor)
 
 #### Segurança
       RNF-S00 Autenticação SSH
