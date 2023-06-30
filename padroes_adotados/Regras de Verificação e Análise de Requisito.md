@@ -22,7 +22,7 @@ ou palavras que forneçam a mesma ideia que essas.
 
 ### Evite frases grandes
 
-A especificação de requisitos deve ser feita de maneira objetiva e clara.
+A especificação de requisitos deve ser feita de maneira objetiva e clara, com no máximo 50 palavras.
 
 ### Agrupe corretamente os requisitos
 
