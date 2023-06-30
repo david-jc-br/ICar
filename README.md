@@ -13,7 +13,7 @@ Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Com
 
 ### Estrutura das pastas:
 #### Requisitos: Essa pasta contém a documentação referente aos requisitos, incluindo os diagramas.
-Diagrama de casos de uso.
+[Diagrama de casos de uso.](https://github.com/david-jc-br/ICar/blob/main/requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
 #### Padrões adotados: Essa pasta contém Regras de Verificação e Análise de Requisitos. 
 #### APP: Essa contém as pastas com o back-end e com o front-end. 
 
