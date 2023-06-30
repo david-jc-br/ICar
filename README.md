@@ -11,6 +11,15 @@
 
 Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Computação na [UFLA](https://ufla.br/)(Universidade Federal de Lavras)  e têm como objetivo atender o gerenciamento comercial locação de veículos da empresa iCar.
 
+### Árvore de Pastas
+```
+Projeto Icar
+├─ 📁 requisitos
+├─ 📁 padroes_adotados
+└─ 📁  App
+   ├─ 📁 Back-end
+   └─ 📁 Front-end
+```
 ### Estrutura das pastas:
 #### Requisitos: Essa pasta contém a documentação referente aos requisitos, incluindo os diagramas.
 -[Diagrama de casos de uso.](https://github.com/david-jc-br/ICar/blob/main/requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
@@ -21,12 +30,6 @@ Projeto Final da Discipina de Engenharia de Software do Curso de Ciência da Com
 
 #### APP: Essa contém as pastas com o back-end e com o front-end. 
 
-### Estrutura das pastas
-├─ Requisitos
-├─ Padrões Adotados
-└─ App
-  ├─ Back-end
-  └─ Front-end
 ## Projeto
 - [Requisitos](./requisitos)
 - - [Requisitos](./requisitos/Diagramas%20de%20Caso%20de%20Uso.pdf)
