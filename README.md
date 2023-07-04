@@ -42,6 +42,8 @@ Projeto Icar
 
 * **Front End:** [HTML5](https://developer.mozilla.org/pt-BR/docs/Learn/Getting_started_with_the_web/HTML_basics) e [CSS3](https://www.w3schools.com/Css/)
 
+* **Diagrama de casos de uso:** [Lucid.app](https://lucid.app/)
+
 ### HOSPEDAGEM: 
 * **Github Pages:** []() - Versão: **0.0**
 ### PAGINA:
