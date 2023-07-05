@@ -46,6 +46,29 @@ Projeto Icar
 
 ### HOSPEDAGEM: 
 * **Github Pages:** []() - Versão: **0.0**
+  
+### Boas práticas de programação:
+
+* Nomenclatura clara e significativa
+  - Use nomes de variáveis, funções e classes que sejam descritivos e transmitam claramente o propósito e a função do elemento.
+    
+* Separação de responsabilidades
+  - Siga o princípio da responsabilidade única, onde cada função ou classe deve ter uma única responsabilidade ou tarefa bem definida.
+    
+* Comentários
+  - Utilize comentários de forma estratégica para explicar trechos de código complexos.
+    
+* Indentação e formatação consistente
+  - Utilize uma formatação consistente em todo o código para garantir que seja facilmente legível.
+    
+* Evite repetição de código
+  - Identifique padrões e trechos de código repetidos e abstraia-os para funções, métodos ou classes reutilizáveis.
+  
+* Elimine código morto e não utilizado
+  - Revise regularmente seu código em busca de trechos de código que não são mais utilizados ou não têm efeito no funcionamento do programa e remova-os completamente.
+
+
+
 ### PAGINA:
 [Sistema Web de Locação de Veículos]() - Versão:
 
