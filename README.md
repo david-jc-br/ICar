@@ -18,8 +18,8 @@ Projeto Icar
 ├─ 📁 requisitos
 ├─ 📁 padroes_adotados
 └─ 📁  App
-   ├─ 📁 Back-end
-   └─ 📁 Front-end
+   ├─ 📁 back-end
+   └─ 📁 front-end
 ```
 ### Estrutura das pastas:
 #### Requisitos: Essa pasta contém a documentação referente aos requisitos, incluindo os diagramas.
