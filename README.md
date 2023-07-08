@@ -41,7 +41,7 @@ Projeto Icar
 
 * **Servidor:** [Express](https://expressjs.com/) - Versão: **4.18.1**
 
-* **Front End:** [HTML5](https://developer.mozilla.org/pt-BR/docs/Learn/Getting_started_with_the_web/HTML_basics) e [CSS3](https://www.w3schools.com/Css/)
+* **Front End:** [React](https://pt-br.legacy.reactjs.org/) com [TypeScript](https://www.typescriptlang.org/)
 
 * **Diagrama de casos de uso:** [Lucid.app](https://lucid.app/)
 
