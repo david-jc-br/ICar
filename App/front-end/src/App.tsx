@@ -4,9 +4,12 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 // Pages
 import Principal from './pages/PrincipalPage';
 import Login from './pages/LoginPage';
-import CadastroPessoa from './pages/CadastroPessoaPage';
+import CadastrarPessoa from './pages/CadastrarPessoaPage';
 import EsqueciSenha from './pages/EsqueciSenhaPage';
+import CadastrarVeiculo from './pages/CadastrarVeiculoPage';
 import PageNotFound from './pages/PageNotFound';
+
+// components 
 import Header from './components/HeaderComponent';
 
 const App: React.FC = () => {
@@ -16,8 +19,9 @@ const App: React.FC = () => {
         <Route path="/" element={<Header />}>
           <Route index element={<Principal />} />
           <Route path="login" element={<Login />} />
-          <Route path="cadastroPessoa" element={<CadastroPessoa />} />
+          <Route path="cadastroPessoa" element={<CadastrarPessoa />} />
           <Route path="esqueciSenha" element={<EsqueciSenha />} />
+          <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CadastroPessoa: React.FC = () => {
+const CadastrarPessoa: React.FC = () => {
     return (
         <div>
             <h2>Cadastrar-se</h2>
@@ -9,4 +9,4 @@ const CadastroPessoa: React.FC = () => {
     );
 };
 
-export default CadastroPessoa;
+export default CadastrarPessoa;
