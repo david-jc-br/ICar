@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { getVeiculoPorPlaca, deletarVeiculo } from '../services/VeiculoServices';
-import './css/ExcluirVeiculoPage.css';
+import { getVeiculoPorPlaca, atualizarVeiculo } from '../services/VeiculoServices';
+import './css/AtualizarVeiculoPage.css';
 
-
-const ExcluirVeiculo: React.FC = () => {
+const AtualizarVeiculo: React.FC = () => {
     const [placa, setPlaca] = React.useState('');
     const [alerta, setAlerta] = useState<{ tipo: 'success' | 'error'; mensagem: string } | null>(null);
 
@@ -12,15 +11,19 @@ const ExcluirVeiculo: React.FC = () => {
 
             if(placa.length !== 7) {
                 throw new Error('A placa deve conter 7 caracteres ');
-            }   
+            }
+            
+            await getVeiculoPorPlaca(placa);
+                //setAlerta({ tipo: 'error', mensagem: 'Veículo não encontrado!' });
+            console.log('Veículo não encontrado no banco de dados!');       
 
-            await deletarVeiculo(placa);
+            await atualizarVeiculo(placa);
             setAlerta({ tipo: 'error', mensagem: 'Veículo excluído com sucesso!' });
             console.log('Veículo excluído com sucesso!');
 
         } catch (error) {
             setAlerta({ tipo: 'error', mensagem: 'A placa deve ter exatamente 7 caracteres.' });
-            console.error('Ocorreu um erro ao excluir o veículo:');
+            console.error('Ocorreu um erro ao atualizar o veículo:');
 
         }
     };
@@ -33,7 +36,7 @@ const ExcluirVeiculo: React.FC = () => {
 
     return (
         <div>
-            <h2>Excluir Veículo</h2>
+            <h2>Atualizar Veículo</h2>
             <label className='label-excluir'>
                 {renderAlerta()}
                 Placa do Veículo:
@@ -42,11 +45,11 @@ const ExcluirVeiculo: React.FC = () => {
                     value={placa}
                     onChange={(event) => setPlaca(event.target.value)}
                 />
-                <button onClick={handleExcluir}>Excluir</button>
+                <button onClick={handleExcluir}>Atualizar</button>
             </label>
             
         </div>
     );
 };
 
-export default ExcluirVeiculo;
+export default AtualizarVeiculo;

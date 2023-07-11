@@ -21,7 +21,7 @@ export async function criarVeiculo(newData: any) {
     }
 }
 
-export async function atualizarVeiculo(placa: number) {
+export async function atualizarVeiculo(placa: string) {
     try {
         const response = await axios.put(`https://localhost:3001/veiculos/${placa}`);
         return response.data;
@@ -48,5 +48,16 @@ export function errorType(error: any) {
         throw new Error("Internal server error");
     } else {
         throw new Error("Unknown error");
+    }
+}
+
+export async function getVeiculoPorPlaca(placa: string) {
+    try {
+        const response = await axios.get(`https://localhost:3001/veiculos/${placa}`);
+        const data = response.data;
+        return data;
+    } catch (error: any) {
+        console.error(error);
+        throw new Error("Veiculo não encontrado");
     }
 }

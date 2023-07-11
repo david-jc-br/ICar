@@ -40,9 +40,20 @@ const deletarVeiculo = async (req, res) => {
     }
 };
 
+const getVeiculoPorPlaca = async (req, res) => {
+    const { placa } = req.params;
+    try {
+        const veiculo = await VeiculoService.getVeiculoPorPlaca(placa);
+        res.json(veiculo);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     getAllVeiculos,
     criarVeiculo,
     atualizarVeiculo,
     deletarVeiculo,
+    getVeiculoPorPlaca,
 };
