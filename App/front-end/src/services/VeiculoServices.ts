@@ -31,7 +31,7 @@ export async function atualizarVeiculo(placa: number) {
     }
 }
 
-export async function deleteCar(placa: number) {
+export async function deletarVeiculo(placa: string) {
     try {
         const response = await axios.delete(`https://localhost:3001/veiculos/${placa}`);
         return response.data;

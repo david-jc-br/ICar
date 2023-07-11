@@ -11,6 +11,7 @@ import PageNotFound from './pages/PageNotFound';
 
 // components 
 import Header from './components/HeaderComponent';
+import ExcluirVeiculo from './pages/ExcluirVeiculoPage';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,8 @@ const App: React.FC = () => {
           <Route path="cadastroPessoa" element={<CadastrarPessoa />} />
           <Route path="esqueciSenha" element={<EsqueciSenha />} />
           <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
+          <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />
+  
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

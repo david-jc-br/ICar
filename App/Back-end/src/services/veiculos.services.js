@@ -68,7 +68,7 @@ const deletarVeiculo = async (placa) => {
     }
 };
 
-// ----Validaçõa----
+// ----Validação----
 
 const ehValidoPlaca = (placa) => {
     if (placa.length !== 7) {
