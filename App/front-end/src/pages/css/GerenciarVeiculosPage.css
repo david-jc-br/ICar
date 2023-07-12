@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .gerenciar-veiculos-container h2 {
@@ -25,7 +25,7 @@
     width: 200px;
     height: 200px;
     border: none;
-    border-radius: 8px;
+    border-radius: 40px;
     background-color: #d9d9d9;
     color: #000000;
     font-size: 18px;

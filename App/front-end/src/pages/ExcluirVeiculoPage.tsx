@@ -1,40 +1,104 @@
-import React from 'react';
-import { deletarVeiculo } from '../services/VeiculoServices';
+import React, { useState } from 'react';
 
-//css
+//services
+import { deletarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
+
+// css
 import '../global/global.css';
-
+import './css/ExcluirVeiculoPage.css';
 
 const ExcluirVeiculo: React.FC = () => {
     const [placa, setPlaca] = React.useState('');
+    const [modelo, setModelo] = useState('');
+    const [marca, setMarca] = useState('');
+    const [disponibilidade, setDisponibilidade] = useState('');
+    const [alerta, setAlerta] = useState<{ tipo: 'success' | 'error' | 'warning'; mensagem: string } | null>(null);
 
-    const handleExcluir = async () => {
+    const handleExcluir = async (event: React.FormEvent) => {
+        event.preventDefault();
         try {
-
-            if(placa.length !== 7) {
-                throw new Error('A placa deve conter 7 caracteres ');
+            if (placa.length !== 7) {
+                setAlerta({ tipo: 'error', mensagem: 'A placa deve ter exatamente 7 caracteres.' });
+                return
             }
+
+            if(disponibilidade !== 'Disponivel'){
+                setAlerta({ tipo: 'error', mensagem: 'O veículo "'+ marca + ' ' + modelo + '" não pode ser excluído pois está com diponibilidade: ' + disponibilidade });
+                    return
+            }
+
             await deletarVeiculo(placa);
-            console.log('Veículo excluído com sucesso!');
-
+            setAlerta({ tipo: 'success', mensagem: 'Veículo excluído com sucesso!' });
         } catch (error) {
-            console.error('Ocorreu um erro ao excluir o veículo:', error);
-
+            console.error('Ocorreu um erro ao excluir o veículo', error);
+            setAlerta({ tipo: 'error', mensagem: 'Ocorreu um erro ao excluir o veículo!' });
         }
     };
 
+    const verificarExistenciaVeiculo = async (placa: string) => {
+        try {
+            const veiculo = await getOneVeiculo(placa);
+
+            if (veiculo) {
+                setPlaca(veiculo.placa);
+                setModelo(veiculo.modelo);
+                setMarca(veiculo.marca);
+                setDisponibilidade(veiculo.disponibilidade);
+
+
+                if(veiculo.disponibilidade === 'Alugado'){
+                    setAlerta({ tipo: 'error', mensagem: 'O veículo "'+ veiculo.marca + ' ' + veiculo.modelo + '" não pode ser excluído pois está com diponibilidade: ' + veiculo.disponibilidade });
+                    return
+                } else {
+                    setAlerta({ tipo: 'success', mensagem: 'Veículo "' + veiculo.marca + ' ' + veiculo.modelo + '" Encontrado! '});
+                }
+            } else {
+                setPlaca('');
+                setDisponibilidade('');
+                setAlerta({ tipo: 'error', mensagem: 'Veículo não encontrado' });
+
+            }
+        } catch (error) {
+            setAlerta({ tipo: 'error', mensagem: 'Erro ao verificar a existência do veículo:' });
+            console.error('Erro ao verificar a existência do veículo:', error);
+        }
+    };
+
+    const handlePlacaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newPlaca = event.target.value;
+        setPlaca(newPlaca);
+
+        if (newPlaca === '') {
+            setAlerta({ tipo: 'warning', mensagem: 'Insira uma placa Válida' })
+        } else {
+            verificarExistenciaVeiculo(newPlaca);
+        }
+
+    };
+
+    const renderAlerta = () => {
+        if (!alerta) return null;
+
+        return <div className={`alert alert-${alerta.tipo}`}>{alerta.mensagem}</div>;
+    };
+
     return (
-        <div>
-            <h2>Excluir Veículo</h2>
-            <label>
-                Placa do Veículo:
-                <input
-                    type="text"
-                    value={placa}
-                    onChange={(event) => setPlaca(event.target.value)}
-                />
-            </label>
-            <button onClick={handleExcluir}>Excluir</button>
+        <div className="excluir-veiculo-container">
+            <div className="excluir-veiculo-box">
+                {renderAlerta()}
+                <h2>EXCLUIR VEÍCULO</h2>
+                <form onSubmit={handleExcluir} >
+                    <label>
+                        Placa:
+                        <input
+                            type="text"
+                            value={placa}
+                            onChange={handlePlacaChange}
+                        />
+                    </label>
+                    <button type="submit">Excluir</button>
+                </form>
+            </div>
         </div>
     );
 };

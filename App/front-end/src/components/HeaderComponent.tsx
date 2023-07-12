@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                     <Outlet />
                 </>
             );
-        } else if (location.pathname === '/cadastrarVeiculo' || location.pathname === '/atualizarVeiculo') {
+        } else if (location.pathname === '/cadastrarVeiculo' || location.pathname === '/atualizarVeiculo' || location.pathname === '/excluirVeiculo') {
             return (
                 <>
                     <nav>
