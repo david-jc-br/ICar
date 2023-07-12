@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getVeiculoPorPlaca, deletarVeiculo } from '../services/VeiculoServices';
+import { deletarVeiculo } from '../services/VeiculoServices';
 import './css/ExcluirVeiculoPage.css';
 
 
