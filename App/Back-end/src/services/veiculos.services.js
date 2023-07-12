@@ -114,8 +114,8 @@ const ehValidoMarca = (marca) => {
 };
 
 const ehValidoAno = (ano) => {
-    if (ano < 2021 || ano > 2025) {
-        throw new Error('O ano deve estar entre 2021 e 2025.');
+    if (ano < 2022 || ano > 2024) {
+        throw new Error('O ano deve estar entre 2022 e 2024.');
     }
 };
 

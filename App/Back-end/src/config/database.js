@@ -2,7 +2,7 @@ const chalk = require('chalk');
 const { Sequelize } = require('sequelize');
 
 // Configuração da conexão com o banco de dados MySQL
-const sequelize = new Sequelize('icar_db', 'root', 'zXc159family56', {
+const sequelize = new Sequelize('icar_db', 'root', '314159', {
     host: 'localhost',
     dialect: 'mysql',
 });

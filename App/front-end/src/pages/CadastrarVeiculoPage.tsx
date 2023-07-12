@@ -69,7 +69,7 @@ const CadastroVeiculo: React.FC = () => {
             }
 
             if (!ehValidoAno(ano)) {
-                setAlerta({ tipo: 'error', mensagem: 'O ano deve estar entre 2021 e 2024.' });
+                setAlerta({ tipo: 'error', mensagem: 'O ano deve estar entre 2022 e 2024.' });
                 return;
             }
 
