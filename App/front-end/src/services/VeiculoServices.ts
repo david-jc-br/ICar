@@ -11,6 +11,17 @@ export async function getAllVeiculos() {
     }
 }
 
+export async function getOneVeiculo(placa: string) {
+    try {
+        const response = await axios.get(`https://localhost:3001/veiculos/${placa}`);
+        const data = response.data;
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error fetching cars.');
+    }
+}
+
 export async function criarVeiculo(newData: any) {
     try {
         const response = await axios.post('https://localhost:3001/veiculos/', newData);
@@ -21,9 +32,9 @@ export async function criarVeiculo(newData: any) {
     }
 }
 
-export async function atualizarVeiculo(placa: number) {
+export async function atualizarVeiculo(placa: string, novosDados: any) {
     try {
-        const response = await axios.put(`https://localhost:3001/veiculos/${placa}`);
+        const response = await axios.put(`https://localhost:3001/veiculos/${placa}`, novosDados );
         return response.data;
     } catch (error) {
         console.error(error);

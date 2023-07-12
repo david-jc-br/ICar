@@ -12,6 +12,7 @@ import PageNotFound from './pages/PageNotFound';
 // components 
 import Header from './components/HeaderComponent';
 import ExcluirVeiculo from './pages/ExcluirVeiculoPage';
+import AtualizarVeiculo from './pages/AtualizarVeiculoPage';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route path="esqueciSenha" element={<EsqueciSenha />} />
           <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
           <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />
+          <Route path="atualizarVeiculo" element={<AtualizarVeiculo/>} />
   
           <Route path="*" element={<PageNotFound />} />
         </Route>

@@ -9,6 +9,16 @@ const getAllVeiculos = async (req, res) => {
     }
 };
 
+const getOneVeiculo = async (req, res) => {
+    try {
+        const {placa} = req.params; 
+        const veiculos = await VeiculoService.getOneVeiculo(placa);
+        res.json(veiculos);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 const criarVeiculo = async (req, res) => {
     const veiculoData = req.body;
     try {
@@ -42,6 +52,7 @@ const deletarVeiculo = async (req, res) => {
 
 module.exports = {
     getAllVeiculos,
+    getOneVeiculo,
     criarVeiculo,
     atualizarVeiculo,
     deletarVeiculo,

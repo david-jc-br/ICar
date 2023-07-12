@@ -70,3 +70,7 @@ button:disabled {
 .alert-error {
   background-color: #f44336;
 }
+
+.alert-warning {
+  background-color: #077BD8;
+}

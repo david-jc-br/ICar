@@ -10,6 +10,17 @@ const getAllVeiculos = async () => {
     }
 };
 
+const getOneVeiculo = async (placa) => {
+    try {
+        const veiculos = await Veiculo.findByPk(placa);
+        return veiculos;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Erro ao pesquisar o veículo com placa ' + placa );
+    }
+};
+
+
 const criarVeiculo = async (veiculoData) => {
     const { placa, modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria } = veiculoData;
 
@@ -123,6 +134,7 @@ const ehValidoValorDiaria = (valorDiaria) => {
 
 module.exports = {
     getAllVeiculos,
+    getOneVeiculo,
     criarVeiculo,
     atualizarVeiculo,
     deletarVeiculo,

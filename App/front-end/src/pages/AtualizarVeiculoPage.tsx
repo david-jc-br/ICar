@@ -1,43 +1,15 @@
 import React, { useState } from 'react';
-import { criarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
-import './css/CadastrarVeiculoPage.css';
 
-export const ehValidoPlaca = (placa: string) => {
-    if (placa.length !== 7) {
-        return false;
-    }
-    return true;
-};
+// services
+import { atualizarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
 
-export const ehValidoModelo = (modelo: string) => {
-    if (modelo.length < 2 || modelo.length > 100) {
-        return false;
-    }
-    return true;
-};
+// css
+import './css/AtualizarVeiculoPage.css';
 
-export const ehValidaMarca = (marca: string) => {
-    if (marca.length < 2 || marca.length > 100) {
-        return false;
-    }
-    return true;
-};
+// validação 
+import { ehValidoPlaca, ehValidoModelo, ehValidaMarca, ehValidoAno, ehValidoValorDiaria } from './CadastrarVeiculoPage';
 
-export const ehValidoAno = (ano: number | '') => {
-    if (ano !== '' && (ano < 2021 || ano > 2024)) {
-        return false;
-    }
-    return true;
-};
-
-export const ehValidoValorDiaria = (valorDiaria: number) => {
-    if (valorDiaria < 90.0) {
-        return false;
-    }
-    return true;
-};
-
-const CadastroVeiculo: React.FC = () => {
+const AtualizarVeiculo: React.FC = () => {
     const [placa, setPlaca] = useState('');
     const [modelo, setModelo] = useState('');
     const [marca, setMarca] = useState('');
@@ -47,6 +19,48 @@ const CadastroVeiculo: React.FC = () => {
     const [cor, setCor] = useState('');
     const [valorDiaria, setValorDiaria] = useState(90.0);
     const [alerta, setAlerta] = useState<{ tipo: 'success' | 'error' | 'warning'; mensagem: string } | null>(null);
+
+
+    const verificarExistenciaVeiculo = async (placa: string) => {
+        try {
+            const veiculo = await getOneVeiculo(placa);
+            if (veiculo) {
+                setModelo(veiculo.modelo);
+                setMarca(veiculo.marca);
+                setAno(veiculo.ano);
+                setCombustivel(veiculo.combustivel);
+                setDisponibilidade(veiculo.disponibilidade);
+                setCor(veiculo.cor);
+                setValorDiaria(veiculo.valorDiaria);
+
+                setAlerta({ tipo: 'success', mensagem: 'Veículo Encontrado!' })
+
+            } else {
+                setModelo('');
+                setMarca('');
+                setAno('');
+                setCombustivel('');
+                setDisponibilidade('');
+                setCor('');
+                setValorDiaria(90.0);
+                setAlerta({ tipo: 'error', mensagem: 'Placa não válida!' });
+            }
+        } catch (error) {
+            console.error('Erro ao verificar a existência do veículo:', error);
+        }
+    };
+
+    const handlePlacaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const newPlaca = event.target.value;
+        setPlaca(newPlaca);
+
+        if (newPlaca === '') {
+            setAlerta({ tipo: 'warning', mensagem: 'Insira uma placa Válida' })
+        }else {
+
+            verificarExistenciaVeiculo(newPlaca);
+        }
+    };
 
     const handleFormSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -78,16 +92,7 @@ const CadastroVeiculo: React.FC = () => {
                 return;
             }
 
-            await criarVeiculo({
-                placa,
-                modelo,
-                marca,
-                ano,
-                combustivel,
-                disponibilidade,
-                cor,
-                valorDiaria,
-            });
+            await atualizarVeiculo(placa, { modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria });
 
             // Limpar os campos após o cadastro bem-sucedido
             setPlaca('');
@@ -99,9 +104,9 @@ const CadastroVeiculo: React.FC = () => {
             setCor('');
             setValorDiaria(90.0);
 
-            setAlerta({ tipo: 'success', mensagem: 'Veículo cadastrado com sucesso!' });
+            setAlerta({ tipo: 'success', mensagem: 'Veículo atualizado com sucesso!' });
         } catch (error) {
-            console.error('Erro ao cadastrar veículo:', error);
+            console.error('Erro ao atualizar veículo:', error);
             setAlerta({ tipo: 'error', mensagem: 'Ocorreu um erro ao cadastrar o veículo. Por favor, tente novamente.' });
         }
     };
@@ -112,50 +117,10 @@ const CadastroVeiculo: React.FC = () => {
         return <div className={`alert alert-${alerta.tipo}`}>{alerta.mensagem}</div>;
     };
 
-    const verificarExistenciaVeiculo = async (placa: string) => {
-        try {
-            const veiculo = await getOneVeiculo(placa);
-
-            if (veiculo) {
-                setModelo(veiculo.modelo);
-                setMarca(veiculo.marca);
-                setAno(veiculo.ano);
-                setCombustivel(veiculo.combustivel);
-                setDisponibilidade(veiculo.disponibilidade);
-                setCor(veiculo.cor);
-                setValorDiaria(veiculo.valorDiaria);
-                setAlerta({ tipo: 'warning', mensagem: 'Veículo já cadastrado!' });
-            }else {
-                setModelo('');
-                setMarca('');
-                setAno('');
-                setCombustivel('');
-                setDisponibilidade('');
-                setCor('');
-                setValorDiaria(90.0);
-
-            }
-        } catch (error) {
-            console.error('Erro ao verificar a existência do veículo:', error);
-        }
-    };
-
-    const handlePlacaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newPlaca = event.target.value;
-        setPlaca(newPlaca);
-
-        if (newPlaca === '') {
-            setAlerta({ tipo: 'error', mensagem: 'Insira uma placa Válida' })
-        }else {
-            verificarExistenciaVeiculo(newPlaca);
-        }
-
-    };
-
     return (
         <form className="cadastro-veiculo" onSubmit={handleFormSubmit}>
             {renderAlerta()}
-            <h2>Cadastro de Veículo</h2>
+            <h2>Atualizar Dados do Veiculo</h2>
             <div className="form-group">
                 <label>
                     Placa:
@@ -235,9 +200,9 @@ const CadastroVeiculo: React.FC = () => {
                 </label>
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button className='botaoAtualizar' type="submit">Atualizar</button>
         </form>
     );
 };
 
-export default CadastroVeiculo;
+export default AtualizarVeiculo;
