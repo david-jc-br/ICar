@@ -79,6 +79,20 @@ const deletarVeiculo = async (placa) => {
     }
 };
 
+const getVeiculoPorPlaca = async (placa) => {
+    try {
+        const veiculo = await Veiculo.findByPk(placa);
+        if (!veiculo) {
+            throw new Error('Veículo não encontrado');
+        }
+        return veiculo;
+
+    } catch (error) {
+        console.error(error);
+        throw new Error(`Nenhum veículo com a placa ${placa} encontrado!`);
+    }
+};
+
 // ----Validação----
 
 const ehValidoPlaca = (placa) => {
@@ -138,4 +152,5 @@ module.exports = {
     criarVeiculo,
     atualizarVeiculo,
     deletarVeiculo,
+    getVeiculoPorPlaca,
 };
