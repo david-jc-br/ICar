@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { atualizarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
 
 // css
-import './css/AtualizarVeiculoPage.css';
+import './css/Cadastrar_Atualizar_VeiculoPage.css';
+import '../global/global.css';
 
 // validação 
 import { ehValidoPlaca, ehValidoModelo, ehValidaMarca, ehValidoAno, ehValidoValorDiaria } from './CadastrarVeiculoPage';
@@ -120,7 +121,7 @@ const AtualizarVeiculo: React.FC = () => {
     return (
         <form className="cadastro-veiculo" onSubmit={handleFormSubmit}>
             {renderAlerta()}
-            <h2>Atualizar Dados do Veiculo</h2>
+            <h2>ATUALIZAR VEÍCULO </h2>
             <div className="form-group">
                 <label>
                     Placa:

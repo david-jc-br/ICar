@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { criarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
-import './css/CadastrarVeiculoPage.css';
+
+// CSS
+import './css/Cadastrar_Atualizar_VeiculoPage.css';
+import '../global/global.css';
 
 export const ehValidoPlaca = (placa: string) => {
     if (placa.length !== 7) {
@@ -155,7 +158,7 @@ const CadastroVeiculo: React.FC = () => {
     return (
         <form className="cadastro-veiculo" onSubmit={handleFormSubmit}>
             {renderAlerta()}
-            <h2>Cadastro de Veículo</h2>
+            <h2>CADASTRAR VEÍCULO</h2>
             <div className="form-group">
                 <label>
                     Placa:

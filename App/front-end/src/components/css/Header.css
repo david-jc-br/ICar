@@ -22,7 +22,16 @@ nav {
 }
 
 .nav-links ul li {
+    height: 25px;
+    width: 150px;
     margin-left: 10px;
+    border-radius: 50px;
+    background-color: #077BD8;
+    display: flex;
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
 }
 
 .nav-links ul li:first-child {
@@ -31,10 +40,22 @@ nav {
 
 .nav-links ul li a {
     text-decoration: none;
-    color: #077BD8;
+    color: #ffffff;
     padding: 5px;
+    font-weight: bold;
 }
 
 .nav-links ul li a:hover {
-    color: #555;
+    color: #64DE7C;
+}
+
+.nav-links .vermelho {
+    background-color: #ED4A4A;
+}
+
+.nav-links .verde {
+    background-color: #64DE7C;
+}
+.nav-links .azul {
+    background-color: #077BD8;
 }

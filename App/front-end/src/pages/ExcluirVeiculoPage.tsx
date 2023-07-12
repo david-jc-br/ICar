@@ -1,6 +1,8 @@
 import React from 'react';
 import { deletarVeiculo } from '../services/VeiculoServices';
 
+//css
+import '../global/global.css';
 
 
 const ExcluirVeiculo: React.FC = () => {
