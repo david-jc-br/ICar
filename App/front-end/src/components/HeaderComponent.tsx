@@ -1,13 +1,29 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 // style
 import './css/Header.css'
 
 // Logo
 import icarLogo from '../img/icar-logo.png'
+import { } from "react-icons";
+import { BsFillPersonFill, BsKey, BsPersonPlus } from "react-icons/bs";
 
 const Header: React.FC = () => {
     const location = useLocation();
+
+    const navigate = useNavigate();
+
+    const handleCadastrarSeClick = () => {
+        navigate('/cadastrarPessoa');
+    };
+
+    const handlePerfilClick = () => {
+        navigate('/perfil');
+    };
+
+    const handleLoginClick = () => {
+        navigate('/login');
+    };
 
     const renderHeaderContent = () => {
 
@@ -17,38 +33,21 @@ const Header: React.FC = () => {
                     <nav>
                         <div className="header-container">
                             <div className="logo">
-
-                                <img src={icarLogo} alt="icar-Logo" />
+                                    <img src={icarLogo} alt="icar-Logo" />
                             </div>
-                            <div className="nav-links">
+                            <div className="nav-buttons">
                                 <ul>
-                                    <li className="verde">
-                                        <Link to="/login">Login</Link>
+                                    <li >
+                                        <button className="azul" onClick={handleCadastrarSeClick}>
+                                            <BsPersonPlus className="icon" />
+                                            <span className="label">Cadastrar-se</span>
+                                        </button>
                                     </li>
-                                    <li className="azul">
-                                        <Link to="/cadastroPessoa">Cadastrar-se</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-
-                    <Outlet />
-                </>
-            );
-        } else if (location.pathname === '/cadastrarVeiculo' || location.pathname === '/atualizarVeiculo' || location.pathname === '/excluirVeiculo' || location.pathname === '/visualizarVeiculos') {
-            return (
-                <>
-                    <nav>
-                        <div className="header-container">
-                            <div className="logo">
-
-                                <img src={icarLogo} alt="icar-Logo" />
-                            </div>
-                            <div className="nav-links">
-                                <ul>
-                                    <li className="azul">
-                                        <Link to="/perfil">Perfil</Link>
+                                    <li >
+                                        <button className="verde" onClick={handleLoginClick}>
+                                            <BsKey className="icon" />
+                                            <span className="label">Login</span>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
@@ -58,8 +57,7 @@ const Header: React.FC = () => {
                     <Outlet />
                 </>
             );
-        }
-        else if (location.pathname === '/gerenciarVeiculos' ) {
+        } else if (location.pathname === '/cadastrarVeiculo' || location.pathname === '/atualizarVeiculo' || location.pathname === '/excluirVeiculo' || location.pathname === '/visualizarVeiculos' || location.pathname === '/gerenciarVeiculos') {
             return (
                 <>
                     <nav>
@@ -68,10 +66,13 @@ const Header: React.FC = () => {
 
                                 <img src={icarLogo} alt="icar-Logo" />
                             </div>
-                            <div className="nav-links">
+                            <div className="nav-buttons">
                                 <ul>
-                                    <li className="azul">
-                                        <Link to="/perfil">Perfil</Link>
+                                    <li >
+                                        <button className="azul" onClick={handlePerfilClick}>
+                                            <BsFillPersonFill className="icon" />
+                                            <span className="label">Perfil</span>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
