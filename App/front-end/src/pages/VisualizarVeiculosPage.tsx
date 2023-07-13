@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getAllVeiculos } from '../services/VeiculoServices';
-import './css/PrincipalPage.css';
+
+
+import '../global/global.css';
+import './css/VisualizarVeiculosPage.css';
 
 interface Veiculo {
     placa: string;
@@ -28,7 +31,7 @@ const Principal: React.FC = () => {
 
         fetchCarros();
 
-        const interval = setInterval(fetchCarros, 1000);
+        const interval = setInterval(fetchCarros, 100);
 
         return () => {
             clearInterval(interval);
@@ -37,44 +40,52 @@ const Principal: React.FC = () => {
 
     const getStatusColor = (status: string) => {
         if (status === 'Disponível') {
-            return 'green';
+            return 'disponivel';
         } else if (status === 'Alugado') {
-            return 'blue';
+            return 'alugado';
         } else if (status === 'Em Manutenção') {
-            return 'red';
+            return 'manutencao';
         }
         return '';
     };
 
     return (
-        <div className="principal-container">
-            <h2>VEÍCULOS DISPONÍVEIS</h2>
+        <div className="principal-container-visualizar">
+            <h2>VEÍCULOS CADASTRADOS</h2>
             <div className="carros-container">
                 {carros.map((carro) => (
                     <div key={carro.placa} className="carro-card">
-                        <div className="carro-header">
-                            <div className="carro-modelo">{carro.modelo}</div>
-                            <div className="carro-marca">{carro.marca}</div>
-                        </div>
                         <div className="carro-info">
                             <div className="carro-info-item">
-                                <span className="carro-info-label">Placa:</span>
-                                <span>{carro.placa}</span>
+                                <span className="carro-info-label">Placa: </span>
+
+                                <span className="carro-info">{carro.placa}</span>
                             </div>
                             <div className="carro-info-item">
-                                <span className="carro-info-label">Ano:</span>
-                                <span>{carro.ano}</span>
+                                <span className="carro-info-label">Modelo: </span>
+
+                                <span className="carro-info">{carro.modelo}</span>
                             </div>
                             <div className="carro-info-item">
-                                <span className="carro-info-label">Combustível:</span>
-                                <span>{carro.combustivel}</span>
+                                <span className="carro-info-label">Marca: </span>
+
+                                <span className="carro-info">{carro.marca}</span>
                             </div>
                             <div className="carro-info-item">
-                                <span className="carro-info-label">Valor Diária:</span>
-                                <span>R$ {carro.valorDiaria.toFixed(2)}</span>
+                                <span className="carro-info-label">Ano: </span>
+                                <span className="carro-info">{carro.ano}</span>
+                            </div>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Combustível: </span>
+                                <span className="carro-info">{carro.combustivel}</span>
+                            </div>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Valor Diária: </span>
+
+                                <span className="carro-info">R$ {carro.valorDiaria.toFixed(2)}</span>
                             </div>
                         </div>
-                        <div className={`carro-status ${getStatusColor(carro.disponibilidade)}`}>
+                        <div className={`${getStatusColor(carro.disponibilidade)}`}>
                             {carro.disponibilidade}
                         </div>
                     </div>

@@ -46,7 +46,20 @@ nav {
 }
 
 .nav-links ul li a:hover {
-    color: #64DE7C;
+    color: #c1c1c1;
+
+}
+
+.nav-links .vermelho:hover {
+    background-color: #b03939;
+    color: #c1c1c1;
+
+}
+.nav-links .verde {
+    background-color: #377644;
+}
+.nav-links .azul {
+    background-color: #085899;
 }
 
 .nav-links .vermelho {

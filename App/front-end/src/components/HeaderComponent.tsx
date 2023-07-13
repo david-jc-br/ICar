@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                                         <Link to="/perfil">Perfil</Link>
                                     </li>
                                     <li className="vermelho">
-                                        <Link to="/gerenciarVeiculos">Cancelar</Link>
+                                        <Link to="/gerenciarVeiculos">Voltar</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
                                         <Link to="/perfil">Perfil</Link>
                                     </li>
                                     <li className="vermelho">
-                                        <Link to="/gerenciarVeiculos">Cancelar</Link>
+                                        <Link to="/gerenciarVeiculos">Voltar</Link>
                                     </li>
                                 </ul>
                             </div>

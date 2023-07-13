@@ -46,14 +46,13 @@ const ExcluirVeiculo: React.FC = () => {
                 setDisponibilidade(veiculo.disponibilidade);
 
 
-                if(veiculo.disponibilidade === 'Alugado'){
+                if(veiculo.disponibilidade === 'Alugado' || veiculo.disponibilidade === 'Em Manutenção'){
                     setAlerta({ tipo: 'error', mensagem: 'O veículo "'+ veiculo.marca + ' ' + veiculo.modelo + '" não pode ser excluído pois está com diponibilidade: ' + veiculo.disponibilidade });
                     return
                 } else {
                     setAlerta({ tipo: 'success', mensagem: 'Veículo "' + veiculo.marca + ' ' + veiculo.modelo + '" Encontrado! '});
                 }
             } else {
-                setPlaca('');
                 setDisponibilidade('');
                 setAlerta({ tipo: 'error', mensagem: 'Veículo não encontrado' });
 
