@@ -69,6 +69,10 @@ nav {
     background-color: #9747FF;
 }
 
+.nav-buttons ul li :hover {
+    color:#cecece
+}
+
 .nav-buttons ul li .verde:hover {
     background-color: #439353;
 }
