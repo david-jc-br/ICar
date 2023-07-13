@@ -70,11 +70,10 @@ Projeto Icar
 
 
 
-### PAGINA:
-[Sistema Web de Locação de Veículos]() - Versão:
+### IMAGENS DA INTERFACE:
 
 <div align="center">
-  <img src="https://github.com/david-jc-br/ICar/assets/73839667/8eccdaa8-4c8c-489a-b067-5283a8bd2306" alt="Logo ICar">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/e5db7af7-7e01-420d-be64-954e2a86a25b" alt="Logo ICar">
 </div>
 
 
