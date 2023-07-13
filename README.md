@@ -72,9 +72,36 @@ Projeto Icar
 
 ### IMAGENS DA INTERFACE:
 
+#### PÁGINA VISUALIZAR VEÍCULOS
+
 <div align="center">
-  <img src="https://github.com/david-jc-br/ICar/assets/73839667/e5db7af7-7e01-420d-be64-954e2a86a25b" alt="Logo ICar">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/56af2449-a583-41d6-b1b9-43e7f0651c7d" alt="Logo ICar">
 </div>
+
+#### PÁGINA GERENCIAR VEÍCULOS
+
+<div align="center">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/3c94c0c5-85e4-4397-9100-728d7bfe4455" alt="Logo ICar">
+</div>
+
+#### PÁGINA CADASTRAR VEÍCULO
+
+<div align="center">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/7782fbcf-7932-48c7-968d-5055ec05defb" alt="Logo ICar">
+</div>
+
+#### PÁGINA EXCLUIR VEÍCULO
+
+<div align="center">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/0f6614e5-4378-43bc-9c21-8b6ea5c716ac" alt="Logo ICar">
+</div>
+
+#### PÁGINA ATUALIZAR VEÍCULO
+
+<div align="center">
+  <img src="https://github.com/david-jc-br/ICar/assets/73839667/ca963421-75da-4970-b092-694b3cbcabdb" alt="Logo ICar">
+</div>
+
 
 
 
