@@ -50,9 +50,6 @@ const Header: React.FC = () => {
                                     <li className="azul">
                                         <Link to="/perfil">Perfil</Link>
                                     </li>
-                                    <li className="vermelho">
-                                        <Link to="/gerenciarVeiculos">Voltar</Link>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -75,9 +72,6 @@ const Header: React.FC = () => {
                                 <ul>
                                     <li className="azul">
                                         <Link to="/perfil">Perfil</Link>
-                                    </li>
-                                    <li className="vermelho">
-                                        <Link to="/gerenciarVeiculos">Voltar</Link>
                                     </li>
                                 </ul>
                             </div>
