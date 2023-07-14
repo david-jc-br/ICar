@@ -1,3 +1,7 @@
 body {
     background-color: #BAB8B8;
 }
+
+*{
+    min-width:auto;
+}

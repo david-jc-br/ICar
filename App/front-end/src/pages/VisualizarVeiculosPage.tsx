@@ -49,6 +49,7 @@ const Principal: React.FC = () => {
         return '';
     };
 
+
     return (
         <div className="principal-container-visualizar">
             <h2>VEÍCULOS CADASTRADOS</h2>

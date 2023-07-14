@@ -12,12 +12,11 @@ import ExcluirVeiculo from './pages/ExcluirVeiculoPage';
 import AtualizarVeiculo from './pages/AtualizarVeiculoPage';
 import MenuAdm from './pages/MenuAdmPage';
 import VisualizarVeiculos from './pages/VisualizarVeiculosPage';
-import GerenciarVeiculos from './pages/GerenciarVeiculosPage';
 
 // components 
-import Header from './components/HeaderComponent';
+import NavBarComponet from './components/NavBarComponent';
 
-const MemoizedHeader = React.memo(Header);
+const MemoizedNavBar = React.memo(NavBarComponet);
 
 const App: React.FC = () => {
   return (
@@ -25,7 +24,7 @@ const App: React.FC = () => {
       <Routes>
         <Route
           path="/"
-          element={<MemoizedHeader />}
+          element={<MemoizedNavBar />}
         >
           <Route index element={<Principal />} />
           <Route path="login" element={<Login />} />
@@ -35,7 +34,6 @@ const App: React.FC = () => {
           <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />
           <Route path="atualizarVeiculo" element={<AtualizarVeiculo/>} />
           <Route path="menuAdm" element={<MenuAdm/>} />
-          <Route path="gerenciarVeiculos" element={<GerenciarVeiculos/>} />
           <Route path="visualizarVeiculos" element={<VisualizarVeiculos/>} />
           <Route path="*" element={<PageNotFound />} />
         </Route>

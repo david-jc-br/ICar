@@ -10,16 +10,30 @@ const getAllVeiculos = async () => {
     }
 };
 
-const getOneVeiculo = async (placa) => {
+const getVeiculosDisponiveis = async () => {
     try {
-        const veiculos = await Veiculo.findByPk(placa);
-        return veiculos;
+        const veiculos = await getAllVeiculos();
+        const veiculosDisponiveis = veiculos.filter(veiculo => veiculo.disponibilidade === 'Disponível');
+        return veiculosDisponiveis;
     } catch (error) {
         console.error(error);
-        throw new Error('Erro ao pesquisar o veículo com placa ' + placa );
+        throw new Error('Erro ao pesquisar o veículos disponíveis ');
     }
 };
 
+const getVeiculoPorPlaca = async (placa) => {
+    try {
+        const veiculo = await Veiculo.findByPk(placa);
+        if (!veiculo) {
+            throw new Error('Veículo não encontrado');
+        }
+        return veiculo;
+
+    } catch (error) {
+        console.error(error);
+        throw new Error(`Nenhum veículo com a placa ${placa} encontrado!`);
+    }
+};
 
 const criarVeiculo = async (veiculoData) => {
     const { placa, modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria } = veiculoData;
@@ -34,11 +48,17 @@ const criarVeiculo = async (veiculoData) => {
     ehValidoValorDiaria(valorDiaria);
 
     try {
+        const veiculoExiste = await getVeiculoPorPlaca(placa);
+
+        if (veiculoExiste) {
+            throw new Error('Veículo já cadastrado!');
+        }
+
         const veiculo = await Veiculo.create({ placa, modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria });
         return veiculo;
     } catch (error) {
         console.error(error);
-        throw new Error('Erro ao criar um novo veículo');
+        throw new Error('Erro ao criar um novo veículo ' + error);
     }
 };
 
@@ -54,7 +74,8 @@ const atualizarVeiculo = async (placa, veiculoData) => {
     ehValidoValorDiaria(valorDiaria);
 
     try {
-        const veiculo = await Veiculo.findByPk(placa);
+        const veiculo = await getVeiculoPorPlaca(placa);
+
         if (!veiculo) {
             throw new Error('Veículo não encontrado');
         }
@@ -76,20 +97,6 @@ const deletarVeiculo = async (placa) => {
     } catch (error) {
         console.error(error);
         throw new Error('Erro ao excluir o veículo');
-    }
-};
-
-const getVeiculoPorPlaca = async (placa) => {
-    try {
-        const veiculo = await Veiculo.findByPk(placa);
-        if (!veiculo) {
-            throw new Error('Veículo não encontrado');
-        }
-        return veiculo;
-
-    } catch (error) {
-        console.error(error);
-        throw new Error(`Nenhum veículo com a placa ${placa} encontrado!`);
     }
 };
 
@@ -148,9 +155,9 @@ const ehValidoValorDiaria = (valorDiaria) => {
 
 module.exports = {
     getAllVeiculos,
-    getOneVeiculo,
+    getVeiculosDisponiveis,
+    getVeiculoPorPlaca,
     criarVeiculo,
     atualizarVeiculo,
     deletarVeiculo,
-    getVeiculoPorPlaca,
 };

@@ -22,7 +22,7 @@ nav {
 }
 
 .nav-buttons ul li{
-    padding: 5px;
+    padding: 10px;
 }
 
 .nav-buttons ul li button {
@@ -49,6 +49,10 @@ nav {
     align-items: center;
 }
 
+.nav-buttons ul li .preto {
+    background-color: #242424;
+}
+
 .nav-buttons ul li .verde {
     background-color: #64DE7C;
 }
@@ -62,7 +66,7 @@ nav {
 }
 
 .nav-buttons ul li .amarelo {
-    background-color: #EDBF4A;
+    background-color: #b48f34;
 }
 
 .nav-buttons ul li .roxo {
@@ -71,6 +75,10 @@ nav {
 
 .nav-buttons ul li :hover {
     color:#cecece
+}
+
+.nav-buttons ul li .preto:hover {
+    background-color: #8b8b8b;
 }
 
 .nav-buttons ul li .verde:hover {
@@ -86,7 +94,7 @@ nav {
 }
 
 .nav-buttons ul li .amarelo:hover {
-    background-color: #a78736;
+    background-color: #75602a;
 }
 
 .nav-buttons ul li .roxo:hover {

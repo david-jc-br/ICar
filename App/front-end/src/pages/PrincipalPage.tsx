@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { getAllVeiculos } from '../services/VeiculoServices';
+import {getVeiculosDisponiveis } from '../services/VeiculoServices';
 
 // CSS
-import './css/PrincipalPage.css';
+import './css/VisualizarVeiculosPage.css'
+import '../global/global.css';
 
 // Interface para especificar o formato dos dados do veículo
 interface Veiculo {
@@ -22,7 +23,7 @@ const Principal: React.FC = () => {
     useEffect(() => {
         const fetchCarros = async () => {
             try {
-                const response = await getAllVeiculos();
+                const response = await getVeiculosDisponiveis();
                 setCarros(response);
             } catch (error) {
                 console.error('Erro ao buscar carros:', error);
@@ -39,17 +40,36 @@ const Principal: React.FC = () => {
     }, []);
 
     return (
-        <div>
+        <div className="principal-container-visualizar">
+            <h3 className="animar-h3">Bem-Vindo ao iCar</h3>
             <div className="carros-container">
                 {carros.map((carro) => (
                     <div key={carro.placa} className="carro-card">
                         <div className="carro-info">
-                            <div>{carro.modelo}</div>
-                            <p>{carro.marca}</p>
-                        </div>
-                        <p>Ano: {carro.ano}</p>
-                        <p>Combustível: {carro.combustivel}</p>
-                        <p>Disponibilidade: {carro.disponibilidade}</p>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Modelo: </span>
+
+                                <span className="carro-info">{carro.modelo}</span>
+                            </div>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Marca: </span>
+
+                                <span className="carro-info">{carro.marca}</span>
+                            </div>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Ano: </span>
+                                <span className="carro-info">{carro.ano}</span>
+                            </div>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Combustível: </span>
+                                <span className="carro-info">{carro.combustivel}</span>
+                            </div>
+                            <div className="carro-info-item">
+                                <span className="carro-info-label">Valor Diária: </span>
+
+                                <span className="carro-info">R$ {carro.valorDiaria.toFixed(2)}</span>
+                            </div>
+                        </div> 
                     </div>
                 ))}
             </div>

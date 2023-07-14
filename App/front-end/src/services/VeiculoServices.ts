@@ -11,9 +11,20 @@ export async function getAllVeiculos() {
     }
 }
 
-export async function getOneVeiculo(placa: string) {
+export async function getVeiculosDisponiveis() {
     try {
-        const response = await axios.get(`https://localhost:3001/veiculos/${placa}`);
+        const response = await axios.get('https://localhost:3001/veiculos/disponiveis');
+        const data = response.data;
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error fetching cars.');
+    }
+}
+
+export async function getVeiculoPorPlaca(placa: string) {
+    try {
+        const response = await axios.get(`https://localhost:3001/veiculos/one/${placa}`);
         const data = response.data;
         return data;
     } catch (error) {

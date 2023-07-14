@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { criarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
+import { criarVeiculo, getVeiculoPorPlaca } from '../services/VeiculoServices';
 
 // CSS
-import './css/Cadastrar_Atualizar_VeiculoPage.css';
+import './css/Form.css';
 import '../global/global.css';
 
 export const ehValidoPlaca = (placa: string) => {
@@ -117,7 +117,7 @@ const CadastroVeiculo: React.FC = () => {
 
     const verificarExistenciaVeiculo = async (placa: string) => {
         try {
-            const veiculo = await getOneVeiculo(placa);
+            const veiculo = await getVeiculoPorPlaca(placa);
 
             if (veiculo) {
                 setModelo(veiculo.modelo);
@@ -156,7 +156,7 @@ const CadastroVeiculo: React.FC = () => {
     };
 
     return (
-        <form className="cadastro-veiculo" onSubmit={handleFormSubmit}>
+        <form className="form-container" onSubmit={handleFormSubmit}>
             {renderAlerta()}
             <h2>CADASTRAR VEÍCULO</h2>
             <div className="form-group">

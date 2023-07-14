@@ -9,11 +9,20 @@ const getAllVeiculos = async (req, res) => {
     }
 };
 
-const getOneVeiculo = async (req, res) => {
+const getVeiculosDisponiveis = async (req, res) => {
     try {
-        const {placa} = req.params; 
-        const veiculos = await VeiculoService.getOneVeiculo(placa);
+        const veiculos = await VeiculoService.getVeiculosDisponiveis();
         res.json(veiculos);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const getVeiculoPorPlaca = async (req, res) => {
+    const { placa } = req.params;
+    try {
+        const veiculo = await VeiculoService.getVeiculoPorPlaca(placa);
+        res.json(veiculo);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -50,21 +59,13 @@ const deletarVeiculo = async (req, res) => {
     }
 };
 
-const getVeiculoPorPlaca = async (req, res) => {
-    const { placa } = req.params;
-    try {
-        const veiculo = await VeiculoService.getVeiculoPorPlaca(placa);
-        res.json(veiculo);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+
 
 module.exports = {
     getAllVeiculos,
-    getOneVeiculo,
+    getVeiculosDisponiveis,
+    getVeiculoPorPlaca,
     criarVeiculo,
     atualizarVeiculo,
     deletarVeiculo,
-    getVeiculoPorPlaca,
 };

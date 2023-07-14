@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //services
-import { deletarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
+import { deletarVeiculo, getVeiculoPorPlaca } from '../services/VeiculoServices';
 
 // css
 import '../global/global.css';
@@ -37,7 +37,7 @@ const ExcluirVeiculo: React.FC = () => {
 
     const verificarExistenciaVeiculo = async (placa: string) => {
         try {
-            const veiculo = await getOneVeiculo(placa);
+            const veiculo = await getVeiculoPorPlaca(placa);
 
             if (veiculo) {
                 setPlaca(veiculo.placa);

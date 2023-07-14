@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 // services
-import { atualizarVeiculo, getOneVeiculo } from '../services/VeiculoServices';
+import { atualizarVeiculo, getVeiculoPorPlaca } from '../services/VeiculoServices';
 
 // css
-import './css/Cadastrar_Atualizar_VeiculoPage.css';
+import './css/Form.css';
 import '../global/global.css';
 
 // validação 
@@ -24,7 +24,7 @@ const AtualizarVeiculo: React.FC = () => {
 
     const verificarExistenciaVeiculo = async (placa: string) => {
         try {
-            const veiculo = await getOneVeiculo(placa);
+            const veiculo = await getVeiculoPorPlaca(placa);
             if (veiculo) {
                 setModelo(veiculo.modelo);
                 setMarca(veiculo.marca);
@@ -119,7 +119,7 @@ const AtualizarVeiculo: React.FC = () => {
     };
 
     return (
-        <form className="cadastro-veiculo" onSubmit={handleFormSubmit}>
+        <form className="form-container" onSubmit={handleFormSubmit}>
             {renderAlerta()}
             <h2>ATUALIZAR VEÍCULO </h2>
             <div className="form-group">
