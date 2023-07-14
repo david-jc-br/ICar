@@ -171,8 +171,8 @@ const NavBar: React.FC = () => {
                             <div className="nav-buttons">
                                 <ul>
                                     <PerfilButton />
-                                    <GerenciarVeiculosButton />
                                     <VisualizarAlugueisButton/>
+                                    <GerenciarVeiculosButton />
                                 </ul>
                             </div>
                         </div>
