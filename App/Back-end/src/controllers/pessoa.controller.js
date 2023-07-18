@@ -1,59 +1,31 @@
-const VeiculoService = require('../services/veiculos.services');
+const PessoaService = require('../services/pessoa.services');
 
-const getAllVeiculos = async (req, res) => {
+const criarPessoa = async (req, res) => {
+    const pessoaData = req.body;
     try {
-        const veiculos = await VeiculoService.getAllVeiculos();
-        res.json(veiculos);
+        const pessoa = await PessoaService.criarPessoa(pessoaData);
+        res.json(pessoa);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
-const getVeiculosDisponiveis = async (req, res) => {
+const atualizarPessoa = async (req, res) => {
+    const { cpf } = req.params;
+    const pessoaData = req.body;
     try {
-        const veiculos = await VeiculoService.getVeiculosDisponiveis();
-        res.json(veiculos);
+        const pessoa = await PessoaService.atualizarPessoa(cpf, pessoaData);
+        res.json(pessoa);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
-const getVeiculoPorPlaca = async (req, res) => {
-    const { placa } = req.params;
+const deletarPessoa = async (req, res) => {
+    const { cpf } = req.params;
     try {
-        const veiculo = await VeiculoService.getVeiculoPorPlaca(placa);
-        res.json(veiculo);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-const criarVeiculo = async (req, res) => {
-    const veiculoData = req.body;
-    try {
-        const veiculo = await VeiculoService.criarVeiculo(veiculoData);
-        res.json(veiculo);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-const atualizarVeiculo = async (req, res) => {
-    const { placa } = req.params;
-    const veiculoData = req.body;
-    try {
-        const veiculo = await VeiculoService.atualizarVeiculo(placa, veiculoData);
-        res.json(veiculo);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
-
-const deletarVeiculo = async (req, res) => {
-    const { placa } = req.params;
-    try {
-        await VeiculoService.deletarVeiculo(placa);
-        res.json({ message: 'Veículo excluído com sucesso' });
+        await PessoaService.deletarPessoa(cpf);
+        res.json({ message: 'Pessoa excluída com sucesso' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -62,10 +34,7 @@ const deletarVeiculo = async (req, res) => {
 
 
 module.exports = {
-    getAllVeiculos,
-    getVeiculosDisponiveis,
-    getVeiculoPorPlaca,
-    criarVeiculo,
-    atualizarVeiculo,
-    deletarVeiculo,
+    criarPessoa,
+    atualizarPessoa,
+    deletarPessoa,
 };
