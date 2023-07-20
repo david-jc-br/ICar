@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { errorType } from "./VeiculoServices";
 
@@ -20,4 +21,3 @@ export async function criarFuncionario(newData: any) {
         errorType(error);
     }
 }
-

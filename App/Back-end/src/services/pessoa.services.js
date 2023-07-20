@@ -284,6 +284,7 @@ const ehValidoNome = (nome) => {
 
 const ehValidoCpf = (cpf) => {
 
+
     const regex = /^\d+$/;
     if (!regex.test(cpf)) {
         throw new Error('O CPF deve conter apenas números.');
