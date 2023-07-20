@@ -45,45 +45,6 @@ const getFuncionarios = async () => {
     }
 };
 
-const getOneFuncionario = async (cpf) => {
-    try {
-        // Buscar o funcionário pelo CPF com sua função (Atendente, Jurídico ou RH)
-        const funcionario = await Funcionario.findOne({
-            where: { cpf },
-            attributes: ['cpf', 'funcao'],
-        });
-
-        if (!funcionario) {
-            throw new Error('Funcionário não encontrado.');
-        }
-
-        // Buscar os dados da pessoa associada ao funcionário
-        const pessoaFuncionario = await Pessoa.findOne({
-            where: { cpf },
-            attributes: ['nome', 'cpf', 'nascimento', 'endereco', 'telefone', 'senha'],
-        });
-
-        if (!pessoaFuncionario) {
-            throw new Error('Pessoa não encontrada.');
-        }
-
-        // Formatar os dados do funcionário e da pessoa encontrados
-        const funcionarioFormatado = {
-            nome: pessoaFuncionario.nome,
-            cpf: pessoaFuncionario.cpf,
-            nascimento: pessoaFuncionario.nascimento,
-            endereco: pessoaFuncionario.endereco,
-            telefone: pessoaFuncionario.telefone,
-            funcao: funcionario.funcao,
-            senha: pessoaFuncionario.senha,
-        };
-
-        return funcionarioFormatado;
-    } catch (error) {
-        console.error(error);
-        throw new Error('Erro ao obter funcionário');
-    }
-};
 
 const getClientes = async () => {
     try {
@@ -120,59 +81,16 @@ const getClientes = async () => {
     }
 };
 
-const getOneCliente = async (cpf) => {
+
+const criarFuncionario = async (nome, cpf, nascimento, endereco, telefone, funcao, senha) => {
     try {
-        const cliente = await Cliente.findOne({
-            where: { cpf },
-            attributes: ['cpf', 'cnh'],
-        });
-
-        if (!cliente) {
-            throw new Error('Cliente não encontrado.');
-        }
-
-        const pessoaFuncionario = await Pessoa.findOne({
-            where: { cpf },
-            attributes: ['nome', 'cpf', 'nascimento', 'endereco', 'telefone', 'senha'],
-        });
-
-        if (!pessoaFuncionario) {
-            throw new Error('Pessoa não encontrada.');
-        }
-
-        const funcionarioFormatado = {
-            nome: pessoaFuncionario.nome,
-            cpf: pessoaFuncionario.cpf,
-            nascimento: pessoaFuncionario.nascimento,
-            endereco: pessoaFuncionario.endereco,
-            telefone: pessoaFuncionario.telefone,
-            cnh: cliente.cnh,
-            senha: pessoaFuncionario.senha,
-        };
-
-        return funcionarioFormatado;
-    } catch (error) {
-        console.error(error);
-        throw new Error('Erro ao obter cliente');
-    }
-};
-
-
-
-const criarFuncionario = async (funcionarioData) => {
-
-    const { nome, cpf, nascimento, endereco, telefone, funcao, senha } = funcionarioData;
-
-    ehValidoNome(nome);
-    ehValidoCpf(cpf);
-    ehValidoNascimento(nascimento);
-    ehValidoEndereco(endereco);
-    ehValidoTelefone(telefone)
-    ehValidoFuncao(funcao);
-    ehValidoSenha(senha);
-
-    try {
-
+        ehValidoNome(nome);
+        ehValidoCpf(cpf);
+        ehValidoNascimento(nascimento);
+        ehValidoEndereco(endereco);
+        ehValidoTelefone(telefone)
+        ehValidoFuncao(funcao);
+        ehValidoSenha(senha);
         // Criptografando a senha antes de armazenar no banco de dados
         const senhaCriptografada = await bcrypt.hash(senha, 10); // O segundo argumento é o número de salt rounds (recomendado >= 10)
 
@@ -187,30 +105,25 @@ const criarFuncionario = async (funcionarioData) => {
             endereco: pessoa.endereco,
             telefone: pessoa.telefone,
             funcao: funcionario.funcao,
-            senha: senhaCriptografada,
+            senha: senhaCriptografada, 
         };
 
         return resultado;
     } catch (error) {
         console.error(error);
-        throw new Error('Erro ao criar pessoa');
+        throw new Error(`Erro ao criar funcionário: ${error}`);
     }
 };
 
-const criarCliente = async (clienteData) => {
-
-    const { nome, cpf, nascimento, endereco, telefone, cnh, senha } = clienteData;
-
-    ehValidoCpf(cpf);
-    ehValidoNascimento(nascimento);
-    ehValidoEndereco(endereco);
-    ehValidoTelefone(telefone)
-    ehValidoCnh(cnh);
-    ehValidoSenha(senha);
-    cpfJaCadastrado(cpf);
-    
+const criarCliente = async (nome, cpf, nascimento, endereco, telefone, cnh, senha) => {
     try {
-
+        ehValidoNome(nome);
+        ehValidoCpf(cpf);
+        ehValidoNascimento(nascimento);
+        ehValidoEndereco(endereco);
+        ehValidoTelefone(telefone)
+        ehValidoCnh(cnh);
+        ehValidoSenha(senha);
         // Criptografando a senha antes de armazenar no banco de dados
         const senhaCriptografada = await bcrypt.hash(senha, 10); // O segundo argumento é o número de salt rounds (recomendado >= 10)
 
@@ -225,13 +138,13 @@ const criarCliente = async (clienteData) => {
             endereco: pessoa.endereco,
             telefone: pessoa.telefone,
             cnh: cliente.cnh,
-            senha: senhaCriptografada,
+            senha: senhaCriptografada, 
         };
 
         return resultado;
     } catch (error) {
         console.error(error);
-        throw new Error('Erro ao criar pessoa: ' + error);
+        throw new Error(`Erro ao criar cliente: ${error}`);
     }
 };
 
@@ -350,11 +263,10 @@ const ehValidoSenha = (senha) => {
     }
 };
 
+
 module.exports = {
     getFuncionarios,
-    getOneFuncionario,
     getClientes,
-    getOneCliente,
     criarFuncionario,
     criarCliente,
     updatePessoaByCpf,

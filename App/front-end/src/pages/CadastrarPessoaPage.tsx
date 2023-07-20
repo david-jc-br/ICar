@@ -160,7 +160,7 @@ const CadastrarPessoa: React.FC = () => {
                     senha,
                 });
 
-            } else if (tipoPessoa === "Funcionário"){
+            } else if (tipoPessoa === "Funcionário") {
                 if (!ehValidoFuncao(funcao)) {
                     setAlerta({ tipo: 'error', mensagem: `A função: ${funcao} não é válida, ela precisa ser Atendente, Jurídico ou RH` });
                     return;
@@ -175,9 +175,9 @@ const CadastrarPessoa: React.FC = () => {
                     funcao,
                     senha,
                 });
-                
+
             }
-            
+
             setNome('');
             setCpf('');
             setNascimento('');
@@ -185,13 +185,22 @@ const CadastrarPessoa: React.FC = () => {
             setTelefone('');
             setCnh('');
             setFuncao('');
-            setSenha(''); 
+            setSenha('');
 
-            setAlerta({ tipo: 'success', mensagem: `${tipoPessoa} cadastrado com sucesso!`});
+            setAlerta({ tipo: 'success', mensagem: `${tipoPessoa} cadastrado com sucesso!` });
         } catch (error) {
             console.error(`Erro ao cadastrar ${tipoPessoa}:`, error);
             setAlerta({ tipo: 'error', mensagem: `Ocorreu um erro ao cadastrar ${tipoPessoa}. Por favor, tente novamente.` });
         }
+    };
+
+    const handleNascimentoChange = (event: any) => {
+        const inputDate = new Date(event.target.value);
+        const year = inputDate.getFullYear();
+        const month = (inputDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = inputDate.getDate().toString().padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+        setNascimento(formattedDate);
     };
 
     const renderAlerta = () => {
@@ -234,7 +243,7 @@ const CadastrarPessoa: React.FC = () => {
             <div className="form-group">
                 <label>
                     Nascimento:
-                    <input type="text" value={nascimento} onChange={(e) => setNascimento(e.target.value)} />
+                    <input type="Date" value={nascimento} onChange={handleNascimentoChange} />
                 </label>
             </div>
             <div className="form-group">

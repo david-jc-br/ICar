@@ -49,8 +49,7 @@ const criarFuncionario = async (req, res) => {
 
         res.json(resultado);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao criar funcionário' });
+        res.status(500).json({ error: error.message });
     }
 };
 
@@ -63,8 +62,7 @@ const criarCliente = async (req, res) => {
 
         res.json(resultado);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao criar cliente' });
+        res.status(500).json({ error: error.message });
     }
 };
 
