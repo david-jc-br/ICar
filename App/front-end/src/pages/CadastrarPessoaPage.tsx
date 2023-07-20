@@ -113,7 +113,7 @@ const CadastrarPessoa: React.FC = () => {
         event.preventDefault();
 
         try {
-            // Realizar as validações antes de criar o veículo
+        
             if (!ehValidoNome(nome)) {
                 setAlerta({ tipo: 'error', mensagem: 'O nome deve ter entre 2 a 200 caracteres' });
                 return;
