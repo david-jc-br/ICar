@@ -69,6 +69,28 @@
     color:#0b6ebf;
 }
 
+.carro-card button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #64DE7C;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.carro-card button:hover {
+    background-color: #367a44;
+}
+
+.carro-card button:disabled {
+    background-color: #D9D9D9;
+    cursor: not-allowed;
+}
+
 @keyframes mover-h3 {
     0% {
         transform: translateY(0);

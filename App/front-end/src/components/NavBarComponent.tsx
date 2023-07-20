@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 
 // icons
 import {
@@ -25,6 +25,7 @@ import { useState } from "react";
 
 const NavBar: React.FC = () => {
     const location = useLocation();
+    const { placa } = useParams<{ placa: string }>();
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,6 +53,10 @@ const NavBar: React.FC = () => {
         navigate('./login');
     };
 
+    const handleMenuPrincipalClick = () => {
+        navigate('./principalCliente');
+    };
+
     const handleGerenciarVeiculosClick = () => {
         setMenuOpen(!menuOpen);
     };
@@ -67,7 +72,7 @@ const NavBar: React.FC = () => {
     const PerfilButton: React.FC = () => {
         return (
             <li>
-                <button className="azul" onClick={handlePerfilClick}>
+                <button className="roxo" onClick={handlePerfilClick}>
                     <BsFillPersonFill className="icon" />
                     <span className="label">Perfil</span>
                 </button>
@@ -129,11 +134,22 @@ const NavBar: React.FC = () => {
         );
     };
 
+    const MenuPrincipalButton: React.FC = () => {
+        return (
+            <li>
+                <button className="azul" onClick={handleMenuPrincipalClick}>
+                    <FaHome className="icon" />
+                    <span className="label">Menu Principal</span>
+                </button>
+            </li>
+        );
+    };
+
     const GerenciarVeiculosButton: React.FC = () => {
         return (
             <li>
                 <button className="preto" onClick={handleGerenciarVeiculosClick}>
-                <FaCar className="icon" />
+                    <FaCar className="icon" />
 
                     Gerenciar Veículos
                 </button>
@@ -153,13 +169,13 @@ const NavBar: React.FC = () => {
                         </li>
                         <li>
                             <button className="preto" onClick={() => navigate('/visualizarVeiculos')}>
-                            <FaList className="icon" />
-                                <span className="label">Visualizar</span>   
+                                <FaList className="icon" />
+                                <span className="label">Visualizar</span>
                             </button>
                         </li>
                         <li>
                             <button className="preto" onClick={() => navigate('/atualizarVeiculo')}>
-                            <FaEdit className="icon" />
+                                <FaEdit className="icon" />
                                 <span className="label">Atualizar</span>
                             </button>
                         </li>
@@ -203,9 +219,9 @@ const NavBar: React.FC = () => {
                             <div className="nav-buttons">
                                 <ul>
                                     <PerfilButton />
-                                    <VisualizarAlugueisButton/>
+                                    <VisualizarAlugueisButton />
                                     <GerenciarVeiculosButton />
-                                    <SairButton/>
+                                    <SairButton />
                                 </ul>
                             </div>
                         </div>
@@ -222,7 +238,7 @@ const NavBar: React.FC = () => {
                             <Logo />
                             <div className="nav-buttons">
                                 <ul>
-                                    <PaginaInicialButton/>
+                                    <PaginaInicialButton />
                                     <LoginButton />
                                 </ul>
                             </div>
@@ -233,24 +249,79 @@ const NavBar: React.FC = () => {
                 </>
             );
         } else if (location.pathname === '/login') {
-        return (
-            <>
-                <nav>
-                    <div className="header-container">
-                        <Logo />
-                        <div className="nav-buttons">
-                            <ul>
-                                <PaginaInicialButton/>
-                                <CadastrarSeButton />
-                            </ul>
+            return (
+                <>
+                    <nav>
+                        <div className="header-container">
+                            <Logo />
+                            <div className="nav-buttons">
+                                <ul>
+                                    <PaginaInicialButton />
+                                    <CadastrarSeButton />
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </nav>
+                    </nav>
 
-                <Outlet />
-            </>
-        );
-    }
+                    <Outlet />
+                </>
+            );
+        } else if (location.pathname === '/principalCliente') {
+            return (
+                <>
+                    <nav>
+                        <div className="header-container">
+                            <Logo />
+                            <div className="nav-buttons">
+                                <ul>
+                                    <PerfilButton />
+                                    <SairButton />
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <Outlet />
+                </>
+            );
+        } else if (location.pathname === `/alugar/${placa}`) {
+            return (
+                <>
+                    <nav>
+                        <div className="header-container">
+                            <Logo />
+                            <div className="nav-buttons">
+                                <ul>
+                                    <MenuPrincipalButton />
+                                    <PerfilButton />
+                                    <SairButton />
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <Outlet />
+                </>
+            );
+        } else if (location.pathname === '/perfil') {
+            return (
+                <>
+                    <nav>
+                        <div className="header-container">
+                            <Logo />
+                            <div className="nav-buttons">
+                                <ul>
+                                    <MenuPrincipalButton />
+                                    <SairButton />
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <Outlet />
+                </>
+            );
+        }
     };
 
     return (

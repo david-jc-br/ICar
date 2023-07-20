@@ -25,9 +25,9 @@ const getAluguelById = async (id) => {
 };
 
 // Criar novo aluguel
-const createAluguel = async (id, dataLocacao, dataDevolucao, valor, cnhCliente, placaVeiculo) => {
+const createAluguel = async (dataLocacao, dataDevolucao, valor, cpf, placaVeiculo) => {
     try {
-        const aluguel = await Aluguel.create({ id, dataLocacao, dataDevolucao, valor, cnhCliente, placaVeiculo });
+        const aluguel = await Aluguel.create({dataLocacao, dataDevolucao, valor, cpf, placaVeiculo });
         return aluguel;
     } catch (error) {
         throw new Error('Erro ao criar aluguel');

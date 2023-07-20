@@ -6,9 +6,10 @@ const Veiculo = require('./veiculo.model');
 
 const Aluguel = db.define('aluguel', {
     id: {
-        type: DataTypes.STRING(8),
+        type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
     },
     dataLocacao: {
         type: DataTypes.DATE,
@@ -49,11 +50,10 @@ const Aluguel = db.define('aluguel', {
     freezeTableName: true,
 });
 
-Aluguel.belongsTo(Cliente, {
+Cliente.hasMany(Aluguel, {
     foreignKey: 'cpf',
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
 });
-
 Aluguel.belongsTo(Veiculo, {
     foreignKey: 'placaVeiculo',
     onDelete: 'CASCADE'

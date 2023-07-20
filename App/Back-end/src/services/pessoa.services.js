@@ -248,7 +248,7 @@ const ehValidoEndereco = (endereco) => {
 
 const ehValidoCnh = (cnh) => {
     const regex = /^\d+$/;
-    if (!regex.test(cpf)) {
+    if (!regex.test(cnh)) {
         throw new Error('A CNH deve conter apenas números.');
     }
 
