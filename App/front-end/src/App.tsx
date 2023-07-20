@@ -28,7 +28,7 @@ const App: React.FC = () => {
         >
           <Route index element={<Principal />} />
           <Route path="login" element={<Login />} />
-          <Route path="cadastroPessoa" element={<CadastrarPessoa />} />
+          <Route path="cadastrarPessoa" element={<CadastrarPessoa />} />
           <Route path="esqueciSenha" element={<EsqueciSenha />} />
           <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
           <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />

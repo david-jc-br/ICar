@@ -9,6 +9,7 @@ import {
 
 import {
     FaEdit,
+    FaHome,
     FaList,
     FaPlus,
     FaTrash
@@ -41,6 +42,11 @@ const NavBar: React.FC = () => {
     const handleVisualizarAlugueisClick = () => {
         navigate('vizualizarAlugueis');
     }
+
+    const handlePaginaInicalClick = () => {
+        navigate('./');
+    };
+
 
     const handleGerenciarVeiculosClick = () => {
         setMenuOpen(!menuOpen);
@@ -98,6 +104,16 @@ const NavBar: React.FC = () => {
         );
     };
 
+    const PaginaInicialButton: React.FC = () => {
+        return (
+            <li>
+                <button className="azul" onClick={handlePaginaInicalClick}>
+                    <FaHome className="icon" />
+                    <span className="label">Página Inical</span>
+                </button>
+            </li>
+        );
+    };
 
     const GerenciarVeiculosButton: React.FC = () => {
         return (
@@ -106,7 +122,7 @@ const NavBar: React.FC = () => {
                     Gerenciar Veículos
                 </button>
                 {menuOpen && (
-                    <ul>
+                    <ul >
                         <li>
                             <button className="preto" onClick={() => navigate('/cadastrarVeiculo')}>
                                 <FaPlus className="icon" />
@@ -181,7 +197,7 @@ const NavBar: React.FC = () => {
                     <Outlet />
                 </>
             );
-        } else if (location.pathname === '/cadastroPessoa') {
+        } else if (location.pathname === '/cadastrarPessoa') {
             return (
                 <>
                     <nav>
@@ -189,6 +205,7 @@ const NavBar: React.FC = () => {
                             <Logo />
                             <div className="nav-buttons">
                                 <ul>
+                                    <PaginaInicialButton/>
                                     <LoginButton />
                                 </ul>
                             </div>

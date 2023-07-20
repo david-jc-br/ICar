@@ -9,7 +9,9 @@ const app = express();
 const db = require('./config/database');
 
 // routes
-const veiculosRoutes = require('./routes/veiculos.routes')
+const veiculosRoutes = require('./routes/veiculos.routes');
+const pessoaRoutes = require('./routes/pessoa.routes');
+const aluguelRoutes = require('./routes/aluguel.routes');
 
 // Middleware para processar o corpo das requisições como JSON
 app.use(express.json());
@@ -22,6 +24,8 @@ app.get('/', (req, res) => {
 
 // Rotas 
 app.use('/veiculos', veiculosRoutes);
+app.use('/pessoas', pessoaRoutes);
+app.use('/alugueis', aluguelRoutes);
 
 // Lidar com rotas não encontradas
 app.use((req, res, next) => {

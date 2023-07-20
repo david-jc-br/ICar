@@ -1,4 +1,4 @@
-const Veiculo = require('../models/veiculos.model');
+const Veiculo = require('../models/veiculo.model');
 
 const getAllVeiculos = async () => {
     try {
@@ -37,22 +37,16 @@ const getVeiculoPorPlaca = async (placa) => {
 
 const criarVeiculo = async (veiculoData) => {
     const { placa, modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria } = veiculoData;
-
-    ehValidoPlaca(placa);
-    ehValidoModelo(modelo);
-    ehValidoMarca(marca);
-    ehValidoAno(ano);
-    ehValidoCombustivel(combustivel);
-    ehValidaDisponibilidade(disponibilidade);
-    ehValidaCor(cor);
-    ehValidoValorDiaria(valorDiaria);
-
-    try {
-        const veiculoExiste = await getVeiculoPorPlaca(placa);
-
-        if (veiculoExiste) {
-            throw new Error('Veículo já cadastrado!');
-        }
+    
+    try {    
+        ehValidoPlaca(placa);
+        ehValidoModelo(modelo);
+        ehValidoMarca(marca);
+        ehValidoAno(ano);
+        ehValidoCombustivel(combustivel);
+        ehValidaDisponibilidade(disponibilidade);
+        ehValidaCor(cor);
+        ehValidoValorDiaria(valorDiaria);
 
         const veiculo = await Veiculo.create({ placa, modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria });
         return veiculo;
@@ -65,15 +59,16 @@ const criarVeiculo = async (veiculoData) => {
 const atualizarVeiculo = async (placa, veiculoData) => {
     const { modelo, marca, ano, combustivel, disponibilidade, cor, valorDiaria } = veiculoData;
 
-    ehValidoModelo(modelo);
-    ehValidoMarca(marca);
-    ehValidoAno(ano);
-    ehValidoCombustivel(combustivel);
-    ehValidaDisponibilidade(disponibilidade);
-    ehValidaCor(cor);
-    ehValidoValorDiaria(valorDiaria);
-
+    
     try {
+        ehValidoModelo(modelo);
+        ehValidoMarca(marca);
+        ehValidoAno(ano);
+        ehValidoCombustivel(combustivel);
+        ehValidaDisponibilidade(disponibilidade);
+        ehValidaCor(cor);
+        ehValidoValorDiaria(valorDiaria);
+        
         const veiculo = await getVeiculoPorPlaca(placa);
 
         if (!veiculo) {

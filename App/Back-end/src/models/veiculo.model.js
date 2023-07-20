@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/database');
 
-const Veiculos = db.define('Veiculo', {
+const Veiculo = db.define('veiculo', {
     placa: {
         type: DataTypes.STRING(7),
         primaryKey: true,
@@ -36,8 +36,9 @@ const Veiculos = db.define('Veiculo', {
         type: DataTypes.DOUBLE(5, 2),
         allowNull: false,
     },
-}, {
+},{
     timestamps: false,
+    freezeTableName: true,
 });
 
-module.exports = Veiculos;
+module.exports = Veiculo;
