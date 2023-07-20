@@ -102,7 +102,7 @@ const CadastrarPessoa: React.FC = () => {
     const [cpf, setCpf] = useState('');
     const [telefone, setTelefone] = useState('');
     const [nascimento, setNascimento] = useState('');
-    const [funcao, setFuncao] = useState('');
+    const [funcao, setFuncao] = useState('Atendente');
     const [endereco, setEndereco] = useState('');
     const [cnh, setCnh] = useState('');
     const [senha, setSenha] = useState('');
@@ -264,7 +264,11 @@ const CadastrarPessoa: React.FC = () => {
                 <div className="form-group">
                     <label>
                         Função:
-                        <input type="text" value={funcao} onChange={(e) => setFuncao(e.target.value)} />
+                        <select value={funcao} onChange={(e) => setFuncao(e.target.value)}>
+                        <option value="RH">RH</option>
+                        <option value="Atendente">Atendente</option>
+                        <option value="Jurídico">Jurídico</option>
+                    </select>
                     </label>
                 </div>
             )}

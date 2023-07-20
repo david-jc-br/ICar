@@ -8,6 +8,7 @@ import {
 } from "react-icons/bs";
 
 import {
+    FaCar,
     FaEdit,
     FaHome,
     FaList,
@@ -47,6 +48,9 @@ const NavBar: React.FC = () => {
         navigate('./');
     };
 
+    const handleSairClick = () => {
+        navigate('./login');
+    };
 
     const handleGerenciarVeiculosClick = () => {
         setMenuOpen(!menuOpen);
@@ -115,10 +119,22 @@ const NavBar: React.FC = () => {
         );
     };
 
+    const SairButton: React.FC = () => {
+        return (
+            <li>
+                <button className="vermelho" onClick={handleSairClick}>
+                    <span className="label">Sair</span>
+                </button>
+            </li>
+        );
+    };
+
     const GerenciarVeiculosButton: React.FC = () => {
         return (
             <li>
                 <button className="preto" onClick={handleGerenciarVeiculosClick}>
+                <FaCar className="icon" />
+
                     Gerenciar Veículos
                 </button>
                 {menuOpen && (
@@ -189,6 +205,7 @@ const NavBar: React.FC = () => {
                                     <PerfilButton />
                                     <VisualizarAlugueisButton/>
                                     <GerenciarVeiculosButton />
+                                    <SairButton/>
                                 </ul>
                             </div>
                         </div>
@@ -215,7 +232,25 @@ const NavBar: React.FC = () => {
                     <Outlet />
                 </>
             );
-        }
+        } else if (location.pathname === '/login') {
+        return (
+            <>
+                <nav>
+                    <div className="header-container">
+                        <Logo />
+                        <div className="nav-buttons">
+                            <ul>
+                                <PaginaInicialButton/>
+                                <CadastrarSeButton />
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <Outlet />
+            </>
+        );
+    }
     };
 
     return (

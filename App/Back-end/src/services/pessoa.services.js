@@ -6,6 +6,44 @@ const Pessoa = require('../models/pessoa.model');
 const Cliente = require('../models/cliente.model');
 const Funcionario = require('../models/funcionario.model');
 
+const login = async (cpfDeEntrada, senha) => {
+    try {
+        ehValidoCpf(cpfDeEntrada);
+        ehValidoSenha(senha);
+
+        const usuario = await Pessoa.findOne({ where: { cpf: cpfDeEntrada } });
+        if (!usuario) {
+            throw new Error('Usuário não encontrado');
+        }
+
+        // compara senha criptografada
+        const senhaEquivalente = await bcrypt.compare(senha, usuario.senha);
+        if (!senhaEquivalente) {
+            throw new Error('Senha inválida');
+        }
+
+        if(usuario.tipo === "Cliente")
+        {
+            const { nome, cpf, nascimento, endereco, telefone, cnh, tipo} = usuario;
+
+            return {nome, cpf, nascimento, endereco, telefone, cnh, tipo};
+
+        }else if (usuario.tipo === "Funcionário"){
+
+            const { nome, cpf, nascimento, endereco, telefone, funcao, tipo } = usuario;
+
+            return {nome, cpf, nascimento, endereco, telefone, funcao, tipo };
+        }else {
+            throw new Error('Tipo pessoa inválido');
+        }
+
+
+    } catch (error) {
+        console.error(error);
+        throw new Error('Falha na autenticação: ' + error);
+    }
+};
+
 const getFuncionarios = async () => {
     try {
         // Obter todos os funcionários com suas funções (Atendente, Jurídico, ou RH)
@@ -265,6 +303,7 @@ const ehValidoSenha = (senha) => {
 
 
 module.exports = {
+    login,
     getFuncionarios,
     getClientes,
     criarFuncionario,

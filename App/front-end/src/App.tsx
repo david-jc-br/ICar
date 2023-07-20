@@ -10,7 +10,6 @@ import CadastrarVeiculo from './pages/CadastrarVeiculoPage';
 import PageNotFound from './pages/PageNotFound';
 import ExcluirVeiculo from './pages/ExcluirVeiculoPage';
 import AtualizarVeiculo from './pages/AtualizarVeiculoPage';
-import MenuAdm from './pages/MenuAdmPage';
 import VisualizarVeiculos from './pages/VisualizarVeiculosPage';
 
 // components 
@@ -33,7 +32,6 @@ const App: React.FC = () => {
           <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
           <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />
           <Route path="atualizarVeiculo" element={<AtualizarVeiculo/>} />
-          <Route path="menuAdm" element={<MenuAdm/>} />
           <Route path="visualizarVeiculos" element={<VisualizarVeiculos/>} />
           <Route path="*" element={<PageNotFound />} />
         </Route>

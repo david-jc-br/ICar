@@ -11,6 +11,8 @@ router.get('/clientes', PessoaController.getClientes);
 router.get('/funcionario/:cpf', PessoaController.getOneFuncionario);
 router.get('/cliente/:cpf', PessoaController.getOneCliente);
 
+router.post('/login', PessoaController.login);
+
 router.post('/funcionario', PessoaController.criarFuncionario);
 router.post('/cliente/', PessoaController.criarCliente);
 
