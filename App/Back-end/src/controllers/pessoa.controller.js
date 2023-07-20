@@ -1,16 +1,5 @@
 const PessoaService = require('../services/pessoa.services');
 
-const login = async (req, res) => {
-    const {cpf, senha} = req.body;
-
-    try {
-        const logar = await PessoaService.login(cpf, senha);
-        res.json(logar);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-};
-
 const getFuncionarios = async (req, res) => {
     try {
         const pessoas = await PessoaService.getFuncionarios();
@@ -101,7 +90,6 @@ const deletePessoaByCpf = async (req, res) => {
 };
 
 module.exports = {
-    login,
     getFuncionarios,
     getOneFuncionario,
     getClientes,

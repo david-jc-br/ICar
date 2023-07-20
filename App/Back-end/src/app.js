@@ -12,6 +12,7 @@ const db = require('./config/database');
 const veiculosRoutes = require('./routes/veiculos.routes');
 const pessoaRoutes = require('./routes/pessoa.routes');
 const aluguelRoutes = require('./routes/aluguel.routes');
+const LoginRoutes = require('./routes/login.routes');
 
 
 // Middleware para processar o corpo das requisições como JSON
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 app.use('/veiculos', veiculosRoutes);
 app.use('/pessoas', pessoaRoutes);
 app.use('/alugueis', aluguelRoutes);
+app.use('/login', LoginRoutes);
 
 
 // Lidar com rotas não encontradas
