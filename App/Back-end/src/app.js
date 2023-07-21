@@ -4,6 +4,8 @@ const https = require('https');
 const cors = require('cors');
 const fs = require('fs');
 const app = express();
+const path = require('path');
+
 
 // database
 const db = require('./config/database');
@@ -48,8 +50,8 @@ db.sync()
         console.log(chalk.blue('\nDatabase tables synchronized successfully.'));
         // Iniciar o servidor após a sincronização
         const options = {
-            key: fs.readFileSync('./ssl/localhost-key.pem'),
-            cert: fs.readFileSync('./ssl/localhost.pem')
+            key: fs.readFileSync(path.join(__dirname, 'ssl', 'localhost-key.pem')),
+            cert: fs.readFileSync(path.join(__dirname, 'ssl', 'localhost.pem')),
         };
         https.createServer(options, app).listen(3001, () => {
             console.log(chalk.green('\nServer started on port 3001 using HTTPS!'));
@@ -60,3 +62,5 @@ db.sync()
     .catch((error) => {
         console.error(chalk.red('Erro ao sincronizar as tabelas do banco de dados:'), error);
     });
+
+module.exports = app;

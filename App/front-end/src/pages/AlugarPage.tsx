@@ -5,7 +5,7 @@ const Alugar: React.FC = () => {
     const { placa } = useParams<{ placa: string }>();
     return (
         <div>
-            <h2>Aluagar</h2>
+            <h2>Alugar</h2>
             {placa}
         </div>
     );

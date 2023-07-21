@@ -149,6 +149,13 @@ const ehValidoValorDiaria = (valorDiaria) => {
 };
 
 module.exports = {
+    ehValidaCor,ehValidaDisponibilidade,
+    ehValidoAno,
+    ehValidoCombustivel,
+    ehValidoMarca,
+    ehValidoModelo,
+    ehValidoPlaca,
+    ehValidoValorDiaria,
     getAllVeiculos,
     getVeiculosDisponiveis,
     getVeiculoPorPlaca,

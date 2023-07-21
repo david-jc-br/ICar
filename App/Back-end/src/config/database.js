@@ -5,6 +5,7 @@ const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('icar_db', 'root', '314159', {
     host: 'localhost',
     dialect: 'mysql',
+    charset: 'utf8',
 });
 
 // Testa a conexão com o banco de dados

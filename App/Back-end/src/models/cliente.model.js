@@ -22,6 +22,7 @@ const Cliente = db.define('cliente', {
 }, {
     timestamps: false,
     freezeTableName: true,
+    charset: 'utf8',
 });
 
 Cliente.belongsTo(Pessoa, {

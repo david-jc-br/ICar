@@ -39,6 +39,7 @@ const Veiculo = db.define('veiculo', {
 },{
     timestamps: false,
     freezeTableName: true,
+    charset: 'utf8',
 });
 
 module.exports = Veiculo;

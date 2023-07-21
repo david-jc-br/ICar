@@ -48,6 +48,7 @@ const Aluguel = db.define('aluguel', {
 }, {
     timestamps: false,
     freezeTableName: true,
+    charset: 'utf8',
 });
 
 Cliente.hasMany(Aluguel, {

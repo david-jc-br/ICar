@@ -16,6 +16,7 @@ const Funcionario = db.define('funcionario', {
 }, {
     timestamps: false,
     freezeTableName: true,
+    charset: 'utf8',
 });
 
 Funcionario.belongsTo(Pessoa, {

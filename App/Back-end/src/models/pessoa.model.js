@@ -38,6 +38,7 @@ const Pessoa = db.define('pessoa', {
     {
         timestamps: false,
         freezeTableName: true,
+        charset: 'utf8',
     }
 );
 
