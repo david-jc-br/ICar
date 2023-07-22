@@ -1,4 +1,4 @@
-const { Aluguel } = require('../models/aluguel.model');
+const {Aluguel}  = require('../models/icar.model');
 
 // Obter todos os aluguéis
 const getAllAlugueis = async () => {
@@ -25,11 +25,12 @@ const getAluguelById = async (id) => {
 };
 
 // Criar novo aluguel
-const createAluguel = async (dataLocacao, dataDevolucao, valor, cpf, placaVeiculo) => {
+const createAluguel = async (dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo) => {
     try {
-        const aluguel = await Aluguel.create({dataLocacao, dataDevolucao, valor, cpf, placaVeiculo });
+        const aluguel = await Aluguel.create({dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo });
         return aluguel;
     } catch (error) {
+        console.error(error);
         throw new Error('Erro ao criar aluguel');
     }
 };

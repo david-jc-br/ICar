@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 
 // Model
-const Pessoa = require('../models/pessoa.model');
+const {Pessoa}  = require('../models/icar.model');
 
 //Validação 
 const {ehValidoCpf, ehValidoSenha} = require('./pessoa.services');

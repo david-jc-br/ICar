@@ -2,9 +2,7 @@
 const bcrypt = require('bcrypt');
 
 // Models
-const Pessoa = require('../models/pessoa.model');
-const Cliente = require('../models/cliente.model');
-const Funcionario = require('../models/funcionario.model');
+const {Pessoa, Cliente, Funcionario}  = require('../models/icar.model');
 
 const getFuncionarios = async () => {
     try {

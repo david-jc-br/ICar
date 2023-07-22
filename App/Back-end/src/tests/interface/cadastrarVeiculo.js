@@ -7,14 +7,14 @@ const { Builder, Browser, By, Key, until } = require('selenium-webdriver');
 async function cadastrarVeiculo() {
     const driver = await new Builder().forBrowser(Browser.CHROME).build();
 
-    const placas = ["AAA1234", "BBB5678"];
-    const modelos = ["Tiguan", "XC60"];
-    const marcas = ["Volkswagem", "Volvo"];
-    const anos = [2023, 2023];
-    const combustiveis = ["Elétrico", "Flex"];
-    const disponibilidades = ["Disponível", "Alugado"];
-    const cores = ["Prata", "Branco"];
-    const valoresDiaria = [250.00, 260.00];
+    const placas = ["AAA1234", "BBB5678","ABB1234", "BAA5678"];
+    const modelos = ["Tiguan", "XC60", "Tiguan", "Onix"];
+    const marcas = ["Volkswagem", "Volvo", "Volkswagem", "Chevrolet"];
+    const anos = [2023, 2023, 2022, 2023];
+    const combustiveis = ["Flex", "Elétrico", "Elétrico", "Flex"];
+    const disponibilidades = ["Disponível", "Alugado", "Disponível", "Em Manutenção"];
+    const cores = ["Prata", "Branco", "Preto", "Preto"];
+    const valoresDiaria = [250.00, 260.00, 270.00, 200.00];
 
     try {
         await driver.manage().window().maximize();
@@ -28,18 +28,18 @@ async function cadastrarVeiculo() {
             await driver.get(`http://localhost:3000/cadastrarVeiculo`);
 
             // Preencher o formulário de cadastro
-            await driver.sleep(2000);
+            await driver.sleep(1000);
             const placa = await driver.findElement(By.xpath(`//*[@id="root"]/header/form/div[1]/label/input`));
             await placa.sendKeys(placas[i]);
-            await driver.sleep(2000);
+            await driver.sleep(1000);
 
             const modelo = await driver.findElement(By.xpath(`//*[@id="root"]/header/form/div[2]/label/input`));
             await modelo.sendKeys(modelos[i]);
-            await driver.sleep(2000);
+            await driver.sleep(1000);
 
             const marca = await driver.findElement(By.xpath(`//*[@id="root"]/header/form/div[3]/label/input`));
             await marca.sendKeys(marcas[i]);
-            await driver.sleep(2000);
+            await driver.sleep(1000);
 
             const ano = await driver.findElement(By.xpath(`//*[@id="root"]/header/form/div[4]/label/select`));
             await ano.click();
@@ -72,7 +72,7 @@ async function cadastrarVeiculo() {
             const valorDiaria = await driver.findElement(By.xpath(`//*[@id="root"]/header/form/div[8]/label/input`));
             await valorDiaria.clear();
             await valorDiaria.sendKeys(valoresDiaria[i]);
-            await driver.sleep(2000);
+            await driver.sleep(1000);
 
             // Submeter o formulário
             await driver.findElement(By.css('form')).submit();
@@ -89,10 +89,10 @@ async function cadastrarVeiculo() {
 
         await driver.get(`http://localhost:3000/excluirVeiculo`);
 
-        await driver.sleep(2000);
+        await driver.sleep(1000);
         const placa = await driver.findElement(By.xpath(`//*[@id="root"]/header/div/div/form/label/input`));
         await placa.sendKeys("AAA1234");
-        await driver.sleep(2000);
+        await driver.sleep(1000);
 
         // Submeter o formulário
         placa.sendKeys(Key.ENTER);

@@ -23,9 +23,9 @@ const getAluguelById = async (req, res) => {
 
 // Criar novo aluguel
 const createAluguel = async (req, res) => {
-    const { dataLocacao, dataDevolucao, valor, cpf, placaVeiculo } = req.body;
+    const { dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo } = req.body;
     try {
-        const aluguel = await AluguelService.createAluguel(dataLocacao, dataDevolucao, valor, cpf, placaVeiculo);
+        const aluguel = await AluguelService.createAluguel(dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo);
         res.status(201).json(aluguel);
     } catch (error) {
         res.status(400).json({ message: error.message });
