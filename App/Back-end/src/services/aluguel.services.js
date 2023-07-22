@@ -1,4 +1,6 @@
-const {Aluguel}  = require('../models/icar.model');
+const {Aluguel, Pessoa, Veiculo}  = require('../models/icar.model');
+const { ehValidoData, ehValidoCpf } = require('./pessoa.services');
+const { ehValidoPlaca } = require('./veiculos.services');
 
 // Obter todos os aluguéis
 const getAllAlugueis = async () => {
@@ -25,19 +27,60 @@ const getAluguelById = async (id) => {
 };
 
 // Criar novo aluguel
-const createAluguel = async (dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo) => {
+const criarAluguel = async (dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo) => {
     try {
-        const aluguel = await Aluguel.create({dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo });
+        ehValidoData(dataDevolucao);
+        ehValidoData(dataLocacao);
+        ehValidoPlaca(placaVeiculo);
+        ehValidoCpf(cpfCliente);
+
+        // Verifica se a pessoa existe
+        const pessoa = await Pessoa.findOne({ where: { cpf: cpfCliente } });
+        if (!pessoa) {
+            throw new Error('Pessoa com o CPF informado não encontrada');
+        }
+
+        // Verifica se o veículo existe
+        const veiculo = await Veiculo.findOne({ where: { placa: placaVeiculo } });
+        if (!veiculo) {
+            throw new Error('Veículo com a placa informada não encontrado');
+        }
+
+        // Verifica se o veículo está disponível para aluguel
+        if (veiculo.disponibilidade !== 'Disponível') {
+            throw new Error('O veículo não está disponível para aluguel');
+        }
+
+        // Cria o novo aluguel
+        const aluguel = await Aluguel.create({
+            dataLocacao,
+            dataDevolucao,
+            valor,
+            cpfCliente,
+            placaVeiculo
+        });
+
+        // Atualiza o status do veículo para "Alugado"
+        veiculo.disponibilidade = 'Alugado';
+        await veiculo.save();
+
         return aluguel;
     } catch (error) {
         console.error(error);
-        throw new Error('Erro ao criar aluguel');
+        throw new Error('Erro ao criar aluguel: ' + error);
     }
 };
 
 // Atualizar aluguel por ID
 const updateAluguelById = async (id, dataLocacao, dataDevolucao, valor, cnhCliente, placaVeiculo) => {
     try {
+        ehValidoData(dataDevolucao);
+        ehValidoData(dataLocacao);
+        ehValidoPlaca(placaVeiculo);
+        ehValidoCpf(cpfCliente);
+
+
+
         const aluguel = await Aluguel.findOne({ where: { id } });
         if (aluguel) {
             await aluguel.update({ dataLocacao, dataDevolucao, valor, cnhCliente, placaVeiculo });
@@ -68,7 +111,7 @@ const deleteAluguelById = async (id) => {
 module.exports = {
     getAllAlugueis,
     getAluguelById,
-    createAluguel,
+    criarAluguel,
     updateAluguelById,
     deleteAluguelById,
 };

@@ -22,10 +22,10 @@ const getAluguelById = async (req, res) => {
 };
 
 // Criar novo aluguel
-const createAluguel = async (req, res) => {
+const criarAluguel = async (req, res) => {
     const { dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo } = req.body;
     try {
-        const aluguel = await AluguelService.createAluguel(dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo);
+        const aluguel = await AluguelService.criarAluguel(dataLocacao, dataDevolucao, valor, cpfCliente, placaVeiculo);
         res.status(201).json(aluguel);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -50,7 +50,7 @@ const deleteAluguelById = async (req, res) => {
     const id = req.params.id;
     try {
         await AluguelService.deleteAluguelById(id);
-        res.sendStatus(204);
+        res.json({ message: 'Aluguel excluído com sucesso' });
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
@@ -59,7 +59,7 @@ const deleteAluguelById = async (req, res) => {
 module.exports = {
     getAllAlugueis,
     getAluguelById,
-    createAluguel,
+    criarAluguel,
     updateAluguelById,
     deleteAluguelById,
 };

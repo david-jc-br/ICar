@@ -6,7 +6,7 @@ const AluguelController = require('../controllers/aluguel.controller');
 // Rotas para Aluguel
 router.get('/', AluguelController.getAllAlugueis);
 router.get('/:id', AluguelController.getAluguelById);
-router.post('/', AluguelController.createAluguel);
+router.post('/', AluguelController.criarAluguel);
 router.put('/:id', AluguelController.updateAluguelById);
 router.delete('/:id', AluguelController.deleteAluguelById);
 
