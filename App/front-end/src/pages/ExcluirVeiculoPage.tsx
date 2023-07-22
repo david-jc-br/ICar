@@ -22,13 +22,15 @@ const ExcluirVeiculo: React.FC = () => {
                 return
             }
 
-            if(disponibilidade !== 'Disponivel'){
+            if(disponibilidade === "Alugado" || disponibilidade === "Em Manutenção"){
                 setAlerta({ tipo: 'error', mensagem: 'O veículo "'+ marca + ' ' + modelo + '" não pode ser excluído pois está com diponibilidade: ' + disponibilidade });
                     return
             }
 
             await deletarVeiculo(placa);
             setAlerta({ tipo: 'success', mensagem: 'Veículo excluído com sucesso!' });
+
+            setPlaca("");
         } catch (error) {
             console.error('Ocorreu um erro ao excluir o veículo', error);
             setAlerta({ tipo: 'error', mensagem: 'Ocorreu um erro ao excluir o veículo!' });

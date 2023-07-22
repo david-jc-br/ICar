@@ -1,3 +1,7 @@
+// Para Rodar basta apenas dar um npm run test 
+
+// O front-end e back-end não podem estar ativos
+
 const { expect } = require('chai');
 const {
     ehValidaCor,

@@ -2,6 +2,10 @@ const request = require('supertest');
 const { expect } = require('chai');
 const app = require('../../app');
 
+// Para Rodar basta apenas dar um npm run test 
+
+// O front-end e back-end não podem estar ativos
+
 describe('Testes para o endpoint /', () => {
     // Antes de cada teste, inicializamos um novo agente de teste supertest
     let agent;
