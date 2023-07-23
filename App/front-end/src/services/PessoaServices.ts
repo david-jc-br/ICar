@@ -23,4 +23,14 @@ export async function criarFuncionario(newData: any) {
 }
 
 
+export async function getPessoaPorCpf(cpf: string) {
+    try {
+        const response = await axios.get(`https://localhost:3001/pessoa/one/${cpf}`);
+        const data = response.data;
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error not found people.');
+    }
+}
 
