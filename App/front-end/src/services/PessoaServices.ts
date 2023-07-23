@@ -34,3 +34,12 @@ export async function getPessoaPorCpf(cpf: string) {
     }
 }
 
+export async function deletarPessoa(cpf: string) {
+    try {
+        const response = await axios.delete(`https://localhost:3001/pessoa/${cpf}`);
+        return response.data;
+    } catch (error: any) {
+        console.error(error);
+        errorType(error);
+    }
+}

@@ -7,6 +7,7 @@ import Login from './pages/LoginPage';
 import CadastrarPessoa from './pages/CadastrarPessoaPage';
 import EsqueciSenha from './pages/EsqueciSenhaPage';
 import PrincipalCliente from './pages/PrincipalClientePage';
+import ExcluirPessoa from './pages/ExcluirPessoaPage';
 
 import CadastrarVeiculo from './pages/CadastrarVeiculoPage';
 import ExcluirVeiculo from './pages/ExcluirVeiculoPage';
@@ -16,6 +17,7 @@ import PageNotFound from './pages/PageNotFound';
 
 import Alugar from './pages/AlugarPage';
 import Perfil from './pages/PerfilPage';
+//import VisualizarAlugueis from './pages/VisualizarAlugueisPage'
 
 // components 
 import NavBarComponet from './components/NavBarComponent';
@@ -36,12 +38,15 @@ const App: React.FC = () => {
           <Route path="esqueciSenha" element={<EsqueciSenha />} />
           <Route path="perfil" element={<Perfil/>} />
           <Route path="principalCliente" element={<PrincipalCliente/>} />
+          <Route path="excluirPessoa" element={<ExcluirPessoa/>} />
 
           <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
           <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />
           <Route path="alugar/:placa" element={<Alugar/>} />
           <Route path="atualizarVeiculo" element={<AtualizarVeiculo/>} />
           <Route path="visualizarVeiculos" element={<VisualizarVeiculos/>} />
+
+          {/* <Route path="visualizarAlugueis" element={<VisualizarAlugueis/>} /> */}
           
           <Route path="*" element={<PageNotFound />} />
 
