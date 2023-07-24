@@ -42,6 +42,7 @@ const VisualizarAlugueis: React.FC = () => {
 
     return (
         <div className="principal-container-visualizar">
+            <h2>ALUGUÉIS</h2>
             <div className="aluguel-container">
                 {alugueis.map((aluguel) => (
                     <div key={aluguel.id} className="aluguel-card">
@@ -73,7 +74,7 @@ const VisualizarAlugueis: React.FC = () => {
 
                                 <span className="aluguel-info">{aluguel.placaVeiculo}</span>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 ))}
             </div>
