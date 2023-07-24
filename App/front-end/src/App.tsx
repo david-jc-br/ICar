@@ -21,6 +21,7 @@ import Perfil from './pages/PerfilPage';
 
 // components 
 import NavBarComponet from './components/NavBarComponent';
+import VisualizarAlugueis from './pages/VisualizarAlugueisPage';
 
 const MemoizedNavBar = React.memo(NavBarComponet);
 
@@ -45,6 +46,7 @@ const App: React.FC = () => {
           <Route path="alugar/:placa" element={<Alugar/>} />
           <Route path="atualizarVeiculo" element={<AtualizarVeiculo/>} />
           <Route path="visualizarVeiculos" element={<VisualizarVeiculos/>} />
+          <Route path="visualizarAlugueis" element={<VisualizarAlugueis/>} />
 
           {/* <Route path="visualizarAlugueis" element={<VisualizarAlugueis/>} /> */}
           

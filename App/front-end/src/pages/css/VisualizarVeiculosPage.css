@@ -50,6 +50,10 @@
     text-align: center;
 }
 
+.carro-info-label{
+    font-weight: bold;
+}
+
 .principal-container-visualizar .carros-container .carro-card .manutencao {
     background-color: #ED4A4A;
     color: rgb(255, 255, 255);

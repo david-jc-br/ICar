@@ -42,7 +42,7 @@ const NavBar: React.FC = () => {
     };
 
     const handleVisualizarAlugueisClick = () => {
-        navigate('vizualizarAlugueis');
+        navigate('visualizarAlugueis');
     }
 
     const handlePaginaInicalClick = () => {
@@ -230,7 +230,29 @@ const NavBar: React.FC = () => {
                     <Outlet />
                 </>
             );
-        } else if (location.pathname === '/cadastrarPessoa') {
+        } else if (
+            location.pathname === '/visualizarAlugueis' 
+        ) {
+            return (
+                <>
+                    <nav>
+                        <div className="header-container">
+                            <Logo />
+                            <div className="nav-buttons">
+                                <ul>
+                                    <PerfilButton />
+                                    <GerenciarVeiculosButton />
+                                    <SairButton />
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <Outlet />
+                </>
+            );
+        }
+        else if (location.pathname === '/cadastrarPessoa') {
             return (
                 <>
                     <nav>
