@@ -67,8 +67,14 @@ Projeto Icar
   
 * Elimine código morto e não utilizado
   - Revise regularmente seu código em busca de trechos de código que não são mais utilizados ou não têm efeito no funcionamento do programa e remova-os completamente.
+    
+### Regras de utilização do git:
 
-
+* Cada commit deve conter mudanças relacionadas a uma única funcionalidade.
+* Explique o que foi alterado no commit.
+* Antes de iniciar um novo trabalho ou fazer um commit, certifique-se de que seu repositório local esteja atualizado com as últimas alterações da branch remota.
+* Crie e mantenha um arquivo .gitignore no seu repositório para evitar que arquivos e diretórios desnecessários sejam incluídos no controle de versão.
+* Todo o código deve estar em App.
 
 ### IMAGENS DA INTERFACE:
 
