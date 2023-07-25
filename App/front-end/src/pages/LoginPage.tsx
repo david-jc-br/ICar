@@ -39,7 +39,7 @@ const Login: React.FC = () => {
 
             if (dadosPessoa.tipo === 'Cliente') {
                 setAlerta({ tipo: 'success', mensagem: 'Logado' });
-                navigate('/principalCliente');
+                navigate(`/principalCliente/${cpf}`);
             } else if (dadosPessoa.tipo === 'Funcionário'){
                 setAlerta({ tipo: 'success', mensagem: 'Logado' });
                 navigate('/visualizarVeiculos');

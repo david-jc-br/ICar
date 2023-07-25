@@ -26,6 +26,7 @@ import { useState } from "react";
 const NavBar: React.FC = () => {
     const location = useLocation();
     const { placa } = useParams<{ placa: string }>();
+    const { cpf } = useParams<{ cpf: string }>();
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -54,7 +55,7 @@ const NavBar: React.FC = () => {
     };
 
     const handleMenuPrincipalClick = () => {
-        navigate('./principalCliente');
+        navigate(`/principalCliente/${cpf}`);
     };
 
     const handleGerenciarVeiculosClick = () => {
@@ -288,7 +289,7 @@ const NavBar: React.FC = () => {
                     <Outlet />
                 </>
             );
-        } else if (location.pathname === '/principalCliente') {
+        } else if (location.pathname === `/principalCliente/${cpf}`) {
             return (
                 <>
                     <nav>
@@ -306,7 +307,7 @@ const NavBar: React.FC = () => {
                     <Outlet />
                 </>
             );
-        } else if (location.pathname === `/alugar/${placa}`) {
+        } else if (location.pathname === `/alugar/${cpf}/${placa}`) {
             return (
                 <>
                     <nav>

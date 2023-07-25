@@ -38,12 +38,12 @@ const App: React.FC = () => {
           <Route path="cadastrarPessoa" element={<CadastrarPessoa />} />
           <Route path="esqueciSenha" element={<EsqueciSenha />} />
           <Route path="perfil" element={<Perfil/>} />
-          <Route path="principalCliente" element={<PrincipalCliente/>} />
+          <Route path="principalCliente/:cpf" element={<PrincipalCliente/>} />
           <Route path="excluirPessoa" element={<ExcluirPessoa/>} />
 
           <Route path="cadastrarVeiculo" element={<CadastrarVeiculo />} />
           <Route path="excluirVeiculo" element={<ExcluirVeiculo/>} />
-          <Route path="alugar/:placa" element={<Alugar/>} />
+          <Route path="alugar/:cpf/:placa" element={<Alugar/>} />
           <Route path="atualizarVeiculo" element={<AtualizarVeiculo/>} />
           <Route path="visualizarVeiculos" element={<VisualizarVeiculos/>} />
           <Route path="visualizarAlugueis" element={<VisualizarAlugueis/>} />

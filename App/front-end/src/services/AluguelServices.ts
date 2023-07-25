@@ -10,3 +10,14 @@ export async function getAlugueis() {
         errorType(error);
     }
 }
+
+export async function alugar(newData: any) {
+    try {
+        const response = await axios.post('https://localhost:3001/alugueis', newData);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        errorType(error);
+    }
+}
+

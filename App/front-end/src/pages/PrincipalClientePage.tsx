@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getVeiculosDisponiveis } from '../services/VeiculoServices';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 // CSS
 import './css/VisualizarVeiculosPage.css'
@@ -21,8 +21,9 @@ interface Veiculo {
 const PrincipalCliente: React.FC = () => {
     const [carros, setCarros] = useState<Veiculo[]>([]);
     const navigate = useNavigate();
-    const handleAlugarClick = (placa: string) => {
-        navigate(`/alugar/${placa}`);
+    const { cpf } = useParams<{ cpf: any }>();
+    const handleAlugarClick = (placa: string, cpf: string) => {
+        navigate(`/alugar/${cpf}/${placa}`);
     }
 
     useEffect(() => {
@@ -75,7 +76,7 @@ const PrincipalCliente: React.FC = () => {
                                 <span className="carro-info">R$ {carro.valorDiaria.toFixed(2)}</span>
                             </div>
                         </div>
-                        <button type="submit" onClick={() => handleAlugarClick(carro.placa)}>
+                        <button type="submit" onClick={() => handleAlugarClick(carro.placa, cpf)}>
                             Alugar
                         </button>
                     </div>
