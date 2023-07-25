@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import {getVeiculosDisponiveis } from '../services/VeiculoServices';
+import { getVeiculosDisponiveis } from '../services/VeiculoServices';
+import { useNavigate } from 'react-router';
 
 // CSS
 import './css/VisualizarVeiculosPage.css'
@@ -19,6 +20,11 @@ interface Veiculo {
 
 const Principal: React.FC = () => {
     const [carros, setCarros] = useState<Veiculo[]>([]);
+    const navigate = useNavigate();
+
+    const handleAlugarClick = () => {
+        navigate('/login');
+    }
 
     useEffect(() => {
         const fetchCarros = async () => {
@@ -69,7 +75,10 @@ const Principal: React.FC = () => {
 
                                 <span className="carro-info">R$ {carro.valorDiaria.toFixed(2)}</span>
                             </div>
-                        </div> 
+                            <button type="button" onClick={() => handleAlugarClick()}>
+                                Alugar
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
